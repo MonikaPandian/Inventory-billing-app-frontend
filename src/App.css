@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+.navbar-btn{
+  margin : 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-name{
+  font-size: 20px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar { 
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.auth-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;  
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 15px;
+  padding-top: 10px;
+  margin: 0;
+  color: #167bff;
+}
+
+.auth-span{
+   text-decoration: underline;
 }
