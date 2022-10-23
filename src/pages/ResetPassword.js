@@ -25,16 +25,16 @@ const ResetPassword = () => {
         })
             .then((data) => data.json())
             .then((data) => {console.log(data)
-                // if (data.message === "success") {
-                //     window.alert("Password reset link has been sent to your mail. Please check your mail")
-                //     navigate("/sign-in")                                                                    
-                // }
-                // else if(data.message === "Enter a valid and registered email Id"){
-                //     window.alert("Enter a valid and registered email Id")
-                // }
-                // else{
-                //     window.alert("something went wrong")
-                // }
+                if (data.message === "User not exists!!") {
+                    window.alert("User not exists!!")
+                    navigate("/sign-in")                                                                    
+                }
+                else if(data.message === "Password updated"){
+                    window.alert("Password updated")
+                }
+                else{
+                    window.alert("something went wrong")
+                }
             })
     }
 
