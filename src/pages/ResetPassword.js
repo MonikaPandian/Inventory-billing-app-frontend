@@ -40,7 +40,7 @@ const ResetPassword = () => {
 
 
     return (
-        <div>
+        <div className='App'>
             <nav className="navbar bg-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
