@@ -16,7 +16,7 @@ const ResetPassword = () => {
         const userEmail = {
             password: newPassword,                                      
         };
-        fetch(`https://inventory-billing-121.herokuapp.com/users/reset-password/${id}/:${token}`, {
+        fetch(`http://localhost:9002/users/reset-password/${id}/:${token}`, {
             method: "POST",
             body: JSON.stringify(userEmail),
             headers: {
