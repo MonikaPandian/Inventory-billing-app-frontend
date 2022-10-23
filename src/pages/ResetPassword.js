@@ -12,12 +12,11 @@ const ResetPassword = () => {
         if(newPassword !== confirmPassword){
             window.alert("passwords does not match!!")
             return;
-        }      
-        // https://inventory-billing-121.herokuapp.com
+        }               
         const userEmail = {
             password: newPassword,                                      
         };
-        fetch(`http:/localhost:9002/users/reset-password/${id}/:${token}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/users/reset-password/${id}/:${token}`, {
             method: "POST",
             body: JSON.stringify(userEmail),
             headers: {
@@ -25,17 +24,17 @@ const ResetPassword = () => {
             }
         })
             .then((data) => data.json())
-            .then((data) => { 
-                if (data.message === "success") {
-                    window.alert("Password reset link has been sent to your mail. Please check your mail")
-                    navigate("/sign-in")                                                                    
-                }
-                else if(data.message === "Enter a valid and registered email Id"){
-                    window.alert("Enter a valid and registered email Id")
-                }
-                else{
-                    window.alert("something went wrong")
-                }
+            .then((data) => {console.log(data)
+                // if (data.message === "success") {
+                //     window.alert("Password reset link has been sent to your mail. Please check your mail")
+                //     navigate("/sign-in")                                                                    
+                // }
+                // else if(data.message === "Enter a valid and registered email Id"){
+                //     window.alert("Enter a valid and registered email Id")
+                // }
+                // else{
+                //     window.alert("something went wrong")
+                // }
             })
     }
 
