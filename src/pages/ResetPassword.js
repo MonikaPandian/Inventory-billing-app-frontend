@@ -24,7 +24,7 @@ const ResetPassword = () => {
             }
         })
             .then((data) => data.json())
-            .then((data) => {console.log(data)
+            .then((data) => {
                 if (data.message === "User not exists!!") {
                     window.alert("User not exists!!")
                     navigate("/sign-in")                                                                    

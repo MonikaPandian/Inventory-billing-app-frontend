@@ -10,8 +10,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         const userEmail = {
             username: email,                                      
-        };
-        console.log(JSON.stringify(userEmail))
+        };        
         fetch("http://localhost:9002/users/forgot-password", {
             method: "POST",
             body: JSON.stringify(userEmail),
