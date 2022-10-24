@@ -11,7 +11,8 @@ const ForgotPassword = () => {
         const userEmail = {
             username: email,                                      
         };
-        fetch("https://inventory-billing-121.herokuapp.com/users/forgot-password", {
+        console.log(JSON.stringify(userEmail))
+        fetch("http://localhost:9002/users/forgot-password", {
             method: "POST",
             body: JSON.stringify(userEmail),
             headers: {

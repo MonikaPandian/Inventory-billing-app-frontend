@@ -13,12 +13,13 @@ const ResetPassword = () => {
             window.alert("passwords does not match!!")
             return;
         }               
-        const userEmail = {
+        const updatePassword = {
             password: newPassword,                                      
         };
-        fetch(`http://localhost:9002/users/reset-password/${id}/:${token}`, {
+        console.log(updatePassword)
+        fetch(`http://localhost:9002/users/reset-password/${id}/${token}`, {
             method: "POST",
-            body: JSON.stringify(userEmail),
+            body: JSON.stringify(updatePassword),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -33,7 +34,7 @@ const ResetPassword = () => {
                     window.alert("Password updated")
                 }
                 else{
-                    window.alert("something went wrong")
+                    window.alert("Token expired")
                 }
             })
     }
