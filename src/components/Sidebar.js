@@ -27,9 +27,9 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-cubes-stacked"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i className="fa-solid fa-cubes-stacked"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <span className="nav-link-text ms-1">Stock</span>
+                                <span onClick={()=>navigate("/stocks")} className="nav-link-text ms-1">Stock</span>
                             </span>
                         </li>
                         <li className="nav-item">
@@ -43,7 +43,7 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
+                                <i className="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Customers</span>
                             </span>
@@ -51,7 +51,7 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
+                                <i className="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Suppliers</span>
                             </span>
@@ -59,7 +59,7 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;
+                                <i className="fa-solid fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Payments</span>
                             </span>
@@ -75,7 +75,7 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="material-icons">add</i>&nbsp;&nbsp;
+                                    <i className="material-icons">add</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Create Invoice</span>
                             </span>
@@ -91,7 +91,7 @@ const Sidebar = () => {
                         <li className="nav-item">
                             <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="material-icons">add</i>&nbsp;&nbsp;
+                                    <i className="material-icons">add</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Add Order</span>
                             </span>

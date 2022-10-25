@@ -55,3 +55,10 @@
 .auth-span{
    text-decoration: underline;
 }
+
+.scrollbar-thin {
+  scrollbar-width: 10px;
+  background-color: grey; 
+  width: 200px;
+  overflow-y: scroll;
+}

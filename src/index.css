@@ -21,6 +21,11 @@ body, html, .App, #root, .auth-wrapper {
   height: 100%;
 }
 
+.scrollbar-thin {
+  scrollbar-width: 10px;
+  background-color: grey;  
+  overflow-y: scroll;
+}
 
 
 

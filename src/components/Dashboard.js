@@ -1,5 +1,263 @@
 import React from 'react'
 import Footer from './Footer'
+import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  ArcElement,
+  LineElement,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  ArcElement,
+  BarElement,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options1 = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    }
+  },
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
+  scales: {
+    y: {
+      grid: {
+        drawBorder: false,
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: false,
+        borderDash: [5, 5],
+        color: 'rgba(255, 255, 255, .2)'
+      },
+      ticks: {        
+        beginAtZero: true,
+        min: 0,
+        max: 80,
+        stepSize: 10,        
+        padding: 10,
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+        color: "#fff"
+      },
+    },
+    x: {
+      grid: {
+        drawBorder: false,
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: false,
+        borderDash: [5, 5],
+        color: 'rgba(255, 255, 255, .2)'
+      },
+      ticks: {
+        display: true,
+        color: '#f8f9fa',
+        padding: 10,
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+      }
+    },
+  },
+}
+
+export const data1 = {
+  labels: ["M", "T", "W", "T", "F", "S", "S"],
+  datasets: [{
+    label: "Sales",
+    tension: 0.4,
+    borderWidth: 0,
+    borderRadius: 4,
+    borderSkipped: false,
+    backgroundColor: "rgba(255, 255, 255, .8)",
+    data: [50, 20, 10, 22, 50, 10, 40],
+    maxBarThickness: 6
+  },],
+};
+
+export const options2 = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    }
+  },
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
+  scales: {
+    y: {
+      grid: {
+        drawBorder: false,
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: false,
+        borderDash: [5, 5],
+        color: 'rgba(255, 255, 255, .2)'
+      },
+      ticks: {
+        display: true,
+        color: '#f8f9fa',
+        padding: 10,
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+      }
+    },
+    x: {
+      grid: {
+        drawBorder: false,
+        display: false,
+        drawOnChartArea: false,
+        drawTicks: false,
+        borderDash: [5, 5]
+      },
+      ticks: {
+        display: true,
+        color: '#f8f9fa',
+        padding: 10,
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+      }
+    },
+  }
+};
+
+export const data2 = {
+  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  datasets: [{
+    label: "Mobile apps",
+    tension: 0,
+    borderWidth: 0,
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+    pointBorderColor: "transparent",
+    borderColor: "rgba(255, 255, 255, .8)",
+    borderColor: "rgba(255, 255, 255, .8)",
+    borderWidth: 4,
+    backgroundColor: "transparent",
+    fill: true,
+    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+    maxBarThickness: 6
+
+  }],
+};
+
+export const options3 = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    }
+  },
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
+  scales: {
+    y: {
+      grid: {
+        drawBorder: false,
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: false,
+        borderDash: [5, 5],
+        color: 'rgba(255, 255, 255, .2)'
+      },
+      ticks: {
+        display: true,
+        padding: 10,
+        color: '#f8f9fa',
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+      }
+    },
+    x: {
+      grid: {
+        drawBorder: false,
+        display: false,
+        drawOnChartArea: false,
+        drawTicks: false,
+        borderDash: [5, 5]
+      },
+      ticks: {
+        display: true,
+        color: '#f8f9fa',
+        padding: 10,
+        font: {
+          size: 14,
+          weight: 300,
+          family: "Roboto",
+          style: 'normal',
+          lineHeight: 2
+        },
+      }
+    },
+  },
+}
+
+export const data3 = {
+  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  datasets: [{
+    label: "deliveries",
+    tension: 0,
+    borderWidth: 0,
+    pointRadius: 5,
+    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+    pointBorderColor: "transparent",
+    borderColor: "rgba(255, 255, 255, .8)",
+    borderWidth: 4,
+    backgroundColor: "transparent",
+    fill: true,
+    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+    maxBarThickness: 6
+  }],
+}
 
 const Dashboard = () => {
   return (
@@ -13,7 +271,7 @@ const Dashboard = () => {
               </div>
               <div className="text-end pt-1">
                 <p className="text-sm mb-0 text-capitalize">Today's Money</p>
-                <h4 className="mb-0">$53k</h4>
+                <h4 className="mb-0">₹ 53k</h4>
               </div>
             </div>
             <hr className="dark horizontal my-0" />
@@ -29,8 +287,8 @@ const Dashboard = () => {
                 <i className="material-icons opacity-10">person</i>
               </div>
               <div className="text-end pt-1">
-                <p className="text-sm mb-0 text-capitalize">Today's Users</p>
-                <h4 className="mb-0">2,300</h4>
+                <p className="text-sm mb-0 text-capitalize">Today's Orders</p>
+                <h4 className="mb-0">20</h4>
               </div>
             </div>
             <hr className="dark horizontal my-0" />
@@ -46,8 +304,8 @@ const Dashboard = () => {
                 <i className="material-icons opacity-10">person</i>
               </div>
               <div className="text-end pt-1">
-                <p className="text-sm mb-0 text-capitalize">New Clients</p>
-                <h4 className="mb-0">3,462</h4>
+                <p className="text-sm mb-0 text-capitalize">New Customers</p>
+                <h4 className="mb-0">10</h4>
               </div>
             </div>
             <hr className="dark horizontal my-0" />
@@ -64,7 +322,7 @@ const Dashboard = () => {
               </div>
               <div className="text-end pt-1">
                 <p className="text-sm mb-0 text-capitalize">Sales</p>
-                <h4 className="mb-0">$103,430</h4>
+                <h4 className="mb-0"> ₹ 10,050</h4>
               </div>
             </div>
             <hr className="dark horizontal my-0" />
@@ -80,13 +338,13 @@ const Dashboard = () => {
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <canvas id="chart-bars" className="chart-canvas" height="170"></canvas>
+                  <Bar options={options1} data={data1} />
                 </div>
               </div>
             </div>
             <div className="card-body">
-              <h6 className="mb-0 ">Website Views</h6>
-              <p className="text-sm ">Last Campaign Performance</p>
+              <h6 className="mb-0 ">Sales Performance</h6>
+              <p className="text-sm">Last week</p>
               <hr className="dark horizontal" />
               <div className="d-flex ">
                 <i className="material-icons text-sm my-auto me-1">schedule</i>
@@ -100,7 +358,7 @@ const Dashboard = () => {
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <canvas id="chart-line" className="chart-canvas" height="170"></canvas>
+                  <Line options={options2} data={data2} />
                 </div>
               </div>
             </div>
@@ -120,13 +378,13 @@ const Dashboard = () => {
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <canvas id="chart-line-tasks" className="chart-canvas" height="170"></canvas>
+                  <Line options={options3} data={data3} />
                 </div>
               </div>
             </div>
             <div className="card-body">
-              <h6 className="mb-0 ">Completed Tasks</h6>
-              <p className="text-sm ">Last Campaign Performance</p>
+              <h6 className="mb-0">Completed Deliveries</h6>
+              <p className="text-sm">Last five months</p>
               <hr className="dark horizontal" />
               <div className="d-flex ">
                 <i className="material-icons text-sm my-auto me-1">schedule</i>
@@ -142,23 +400,11 @@ const Dashboard = () => {
             <div className="card-header pb-0">
               <div className="row">
                 <div className="col-lg-6 col-7">
-                  <h6>Projects</h6>
+                  <h6>Bulk Orders</h6>
                   <p className="text-sm mb-0">
                     <i className="fa fa-check text-info" aria-hidden="true"></i>
-                    <span className="font-weight-bold ms-1">30 done</span> this month
+                    <span className="font-weight-bold ms-1">12 done</span> this month
                   </p>
-                </div>
-                <div className="col-lg-6 col-5 my-auto text-end">
-                  <div className="dropdown float-lg-end pe-4">
-                    <a className="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i className="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul className="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                      <li><a className="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                      <li><a className="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                      <li><a className="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
@@ -167,10 +413,10 @@ const Dashboard = () => {
                 <table className="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies</th>
-                      <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members</th>
-                      <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
-                      <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Completion</th>
+                      <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shop name</th>
+                      <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Order amount</th>
+                      <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount Paid</th>
+                      <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount Pending</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -181,228 +427,123 @@ const Dashboard = () => {
                             <img src="../assets/img/small-logos/logo-xd.svg" className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Material XD Version</h6>
+                            <h6 className="mb-0 text-sm">Cooperative Shop</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-1.jpg" alt="team1" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-2.jpg" alt="team2" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                            <img src="../assets/img/team-3.jpg" alt="team3" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="team4" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 12,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> $14,000 </span>
+                        <span className="text-sm font-weight-bold">₹ 8,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">60%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 4,000</span>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-atlassian.svg" className="avatar avatar-sm me-3" alt="atlassian" />
+                            <img src="../assets/img/small-logos/logo-atlassian.svg " className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Add Progress Track</h6>
+                            <h6 className="mb-0 text-sm">Fine Gourmet</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-2.jpg" alt="team5" />
-                          </a>
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="team6" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 12,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> $3,000 </span>
+                        <span className="text-sm font-weight-bold">₹ 8,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">10%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 4,000</span>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-slack.svg" className="avatar avatar-sm me-3" alt="team7" />
+                            <img src="../assets/img/small-logos/logo-slack.svg" className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Fix Platform Errors</h6>
+                            <h6 className="mb-0 text-sm">Whole Foods market</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-3.jpg" alt="team8" />
-                          </a>
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-1.jpg" alt="team9" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 20,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> Not set </span>
+                        <span className="text-sm font-weight-bold">₹ 10,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 5,000</span>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-spotify.svg" className="avatar avatar-sm me-3" alt="spotify" />
+                            <img src="../assets/img/small-logos/logo-spotify.svg " className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Launch our Mobile App</h6>
+                            <h6 className="mb-0 text-sm">Walmart</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-4.jpg" alt="user1" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-3.jpg" alt="user2" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                            <img src="../assets/img/team-4.jpg" alt="user3" />
-                          </a>
-                          <a href="#" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-1.jpg" alt="user4" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 18,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> $20,500 </span>
+                        <span className="text-sm font-weight-bold">₹ 16,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 2,000</span>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-jira.svg" className="avatar avatar-sm me-3" alt="jira" />
+                            <img src="../assets/img/small-logos/logo-jira.svg " className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Add the New Pricing Page</h6>
+                            <h6 className="mb-0 text-sm">Stop & shop</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-4.jpg" alt="user5" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 14,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> $500 </span>
+                        <span className="text-sm font-weight-bold">₹ 11,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">25%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 3,000</span>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-invision.svg" className="avatar avatar-sm me-3" alt="invision" />
+                            <img src="../assets/img/small-logos/logo-invision.svg" className="avatar avatar-sm me-3" alt="xd" />
                           </div>
                           <div className="d-flex flex-column justify-content-center">
-                            <h6 className="mb-0 text-sm">Redesign New Online Shop</h6>
+                            <h6 className="mb-0 text-sm">Market of Choice</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="avatar-group mt-2">
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-1.jpg" alt="user6" />
-                          </a>
-                          <a href="javascript:;" className="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="user7" />
-                          </a>
-                        </div>
+                        <span className="text-sm font-weight-bold">₹ 19,000</span>
                       </td>
                       <td className="align-middle text-center text-sm">
-                        <span className="text-xs font-weight-bold"> $2,000 </span>
+                        <span className="text-sm font-weight-bold">₹ 14,000</span>
                       </td>
-                      <td className="align-middle">
-                        <div className="progress-wrapper w-75 mx-auto">
-                          <div className="progress-info">
-                            <div className="progress-percentage">
-                              <span className="text-xs font-weight-bold">40%</span>
-                            </div>
-                          </div>
-                          <div className="progress">
-                            <div className="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
-                          </div>
-                        </div>
+                      <td className="align-middle text-center text-sm">
+                        <span className="text-sm font-weight-bold">₹ 5,000</span>
                       </td>
                     </tr>
                   </tbody>
@@ -427,7 +568,7 @@ const Dashboard = () => {
                     <i className="material-icons text-success text-gradient">notifications</i>
                   </span>
                   <div className="timeline-content">
-                    <h6 className="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
+                    <h6 className="text-dark text-sm font-weight-bold mb-0">₹ 2400, cereals and Millets</h6>
                     <p className="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
                   </div>
                 </div>
@@ -463,7 +604,7 @@ const Dashboard = () => {
                     <i className="material-icons text-primary text-gradient">key</i>
                   </span>
                   <div className="timeline-content">
-                    <h6 className="text-dark text-sm font-weight-bold mb-0">Unlock packages for development</h6>
+                    <h6 className="text-dark text-sm font-weight-bold mb-0">Unlock packages for new shop</h6>
                     <p className="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
                   </div>
                 </div>
@@ -481,9 +622,216 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
 
 export default Dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,17 +8,20 @@ import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Home from './components/Home'
 import Payments from './components/Payments'
+import Profile from './components/Profile'
+import Stocks from './components/Stocks'
 
 function App() {
   return (
       <div className="App">                 
             <Routes>
-              <Route exact path="/" element={<ResetPassword/>} />
+              <Route exact path="/" element={<Login/>} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
-              <Route path="/home" element={<Home />} />                                         
+              <Route path="/home" element={<Home />} />
+              <Route path="/stocks" element={<Stocks />} />                                        
         </Routes>   
       </div>   
   )
