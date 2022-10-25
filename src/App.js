@@ -13,7 +13,7 @@ function App() {
   return (
       <div className="App">                 
             <Routes>
-              <Route exact path="/" element={<SignUp/>} />
+              <Route exact path="/" element={<ResetPassword/>} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
