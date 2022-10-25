@@ -36,7 +36,7 @@ const Login = () => {
 
     return (
         <div className='App'>
-            <nav className="navbar bg-primary fixed-top">
+            <nav className="navbar bg-gradient-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
@@ -65,15 +65,15 @@ const Login = () => {
                                 placeholder="Enter password" autoComplete='off'
                             />
                         </div>
-                        <div className="forgot-password text-right mb-3">
+                        <div className="forgot-password text-right text-black mb-3">
                             <span className="auth-span" onClick={() => navigate("/forgot-password")}> Forgot password?</span>
                         </div>
                         <div className="d-grid">
-                            <button className="btn bg-primary text-white text-capitalize">
+                            <button className="btn bg-gradient-primary text-white text-capitalize">
                                 Login
                             </button>
                         </div>
-                        <div className="forgot-password text-right">
+                        <div className="forgot-password text-black">
                             Don't have an account ?<span onClick={() => navigate("/sign-up")} className="auth-span">sign up</span>
                         </div>
                     </form>

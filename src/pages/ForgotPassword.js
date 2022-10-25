@@ -10,8 +10,8 @@ const ForgotPassword = () => {
         e.preventDefault();
         const userEmail = {
             username: email,                                      
-        };        
-        fetch("http://localhost:9002/users/forgot-password", {
+        };
+        fetch("https://inventory-billing-121.herokuapp.com/users/forgot-password", {
             method: "POST",
             body: JSON.stringify(userEmail),
             headers: {
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
 
     return (
         <div className='App'>
-            <nav className="navbar bg-primary fixed-top">
+            <nav className="navbar bg-gradient-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
@@ -57,7 +57,7 @@ const ForgotPassword = () => {
                             />
                         </div>
                         <div className="d-grid mt-2">
-                            <button className="btn bg-primary text-white text-capitalize">
+                            <button className="btn bg-gradient-primary text-white text-capitalize">
                                 Send Password reset mail
                             </button>
                         </div>

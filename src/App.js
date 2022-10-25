@@ -6,16 +6,14 @@ import Login from './pages/Login'
 import SignUp from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
-import Sidebar from './components/Sidebar'
-import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Dashboard from './components/Dashboard'
+import Payments from './components/Payments'
 
 function App() {
   return (
       <div className="App">                 
             <Routes>
-              <Route exact path="/" element={<ResetPassword/>} />
+              <Route exact path="/" element={<SignUp/>} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

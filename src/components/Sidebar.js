@@ -1,114 +1,139 @@
 import React from 'react'
-import logo from '../assets/img/logo-ct.png'
+import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
 
-    const scrollBar=()=>{
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-          var options = {
-            damping: '0.5'
-          }
-          scrollBar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    }
+    const navigate = useNavigate()
+ 
     return (           
-            <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3  bg-gradient-dark" id="sidenav-main">
+            <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
                 <div className="sidenav-header">
-                    <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-                    <a className="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-                        <img src={logo} className="navbar-brand-img h-100" alt="main_logo" />
-
-                        <span className="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
-                    </a>
+                    <span style={{cursor:"pointer"}} className="nav-link text-white navbar-brand ms-0 ps-3">                       
+                        <i className="material-icons opacity-10">dashboard</i>&nbsp;&nbsp;
+                        <span className="ms-1 font-weight-bold text-white">Inventory Billing Dashboard</span>                       
+                    </span>
                 </div>
                 <hr className="horizontal light mt-0 mb-2" />
-                <div className="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+                <div className="w-auto" id="sidenav-collapse-main">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white active bg-gradient-primary">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i className="material-icons opacity-10">dashboard</i>
                                 </div>
-                                <span className="nav-link-text ms-1">Dashboard</span>
-                            </a>
+                                <span onClick={()=>navigate("/home")} className="nav-link-text ms-1">Dashboard</span>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/tables.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">table_view</i>
+                                    <i class="fa-solid fa-cubes-stacked"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <span className="nav-link-text ms-1">Tables</span>
-                            </a>
+                                <span className="nav-link-text ms-1">Stock</span>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/billing.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">receipt_long</i>
+                                    <i className="material-icons opacity-10">table_view</i>&nbsp;&nbsp;
                                 </div>
-                                <span className="nav-link-text ms-1">Billing</span>
-                            </a>
+                                <span className="nav-link-text ms-1">Products</span>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/virtual-reality.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">view_in_ar</i>
+                                <i class="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <span className="nav-link-text ms-1">Virtual Reality</span>
-                            </a>
+                                <span className="nav-link-text ms-1">Customers</span>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/rtl.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">format_textdirection_r_to_l</i>
+                                <i class="fa-solid fa-users"></i>&nbsp;&nbsp;&nbsp;
                                 </div>
-                                <span className="nav-link-text ms-1">RTL</span>
-                            </a>
+                                <span className="nav-link-text ms-1">Suppliers</span>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/notifications.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">notifications</i>
+                                <i class="fa-solid fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <span className="nav-link-text ms-1">Payments</span>
+                            </span>
+                        </li>
+                        <li className="nav-item">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
+                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i className="material-icons opacity-10">receipt_long</i>&nbsp;&nbsp;
+                                </div>
+                                <span className="nav-link-text ms-1">Invoices</span>
+                            </span>
+                        </li>
+                        <li className="nav-item">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
+                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="material-icons">add</i>&nbsp;&nbsp;
+                                </div>
+                                <span className="nav-link-text ms-1">Create Invoice</span>
+                            </span>
+                        </li>                     
+                        <li className="nav-item">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
+                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i className="material-icons opacity-10">format_textdirection_r_to_l</i>&nbsp;&nbsp;
+                                </div>
+                                <span className="nav-link-text ms-1">Orders</span>
+                            </span>
+                        </li>
+                        <li className="nav-item">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
+                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="material-icons">add</i>&nbsp;&nbsp;
+                                </div>
+                                <span className="nav-link-text ms-1">Add Order</span>
+                            </span>
+                        </li>   
+                        <li className="nav-item">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
+                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i className="material-icons opacity-10">notifications</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Notifications</span>
-                            </a>
+                            </span>
                         </li>
                         <li className="nav-item mt-3">
                             <h6 className="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/profile.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">person</i>
+                                    <i className="material-icons opacity-10">person</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Profile</span>
-                            </a>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/sign-in.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">login</i>
+                                    <i className="material-icons opacity-10">login</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Sign In</span>
-                            </a>
+                            </span>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white " href="../pages/sign-up.html">
+                            <span style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons opacity-10">assignment</i>
+                                    <i className="material-icons opacity-10">assignment</i>&nbsp;&nbsp;
                                 </div>
                                 <span className="nav-link-text ms-1">Sign Up</span>
-                            </a>
-                        </li>
+                            </span>
+                        </li>                                                
                     </ul>
-                </div>
-                <div className="sidenav-footer position-absolute w-100 bottom-0 ">
-                    <div className="mx-3">
-                        <a className="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
-                    </div>
-                </div>
-            </aside>
-       
+                </div>               
+            </aside>       
     )
 }
 

@@ -41,7 +41,7 @@ const ResetPassword = () => {
 
     return (
         <div className='App'>
-            <nav className="navbar bg-primary fixed-top">
+            <nav className="navbar bg-gradient-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
@@ -72,7 +72,7 @@ const ResetPassword = () => {
                         </div>
 
                         <div className="d-grid">
-                            <button className="btn bg-primary text-white text-capitalize">
+                            <button className="btn bg-gradient-primary text-white text-capitalize">
                                 Update password
                             </button>
                         </div>

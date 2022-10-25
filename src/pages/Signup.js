@@ -28,10 +28,9 @@ const Signup = () => {
         })
             .then((data) => data.json())
             .then((data) => {
-                if (data.acknowledged === true) {
-                    navigate("/sign-in")
+                if (data.acknowledged === true) {                                                         
                     window.alert("Account created successfully.Please login to continue")
-                    // toast("Account created successfully.Please login to continue")                                     
+                    navigate("/sign-in")
                 }
                 else if(data.message === "Username already taken"){
                     window.alert("Username already taken.")
@@ -44,7 +43,7 @@ const Signup = () => {
 
     return (
         <div className='App'>
-           <nav className="navbar bg-primary fixed-top">
+           <nav className="navbar bg-gradient-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
@@ -86,15 +85,14 @@ const Signup = () => {
                             />
                         </div>
                         <div className="d-grid">
-                            <button className="btn bg-primary text-white text-capitalize">
+                            <button className="btn bg-gradient-primary text-white text-capitalize">
                                 Sign Up
                             </button>                          
                         </div>
-                        <div className="forgot-password text-right">
+                        <div className="forgot-password text-black">
                             Already registered ?  <span onClick={() => navigate("/sign-in")} className="auth-span">sign in</span>
                         </div>
-                    </form>
-                    
+                    </form>                    
                 </div>
             </div>
             <ToastContainer toastStyle={{ backgroundColor: "#18CD30",color:"white" }}/>
