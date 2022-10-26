@@ -89,7 +89,7 @@ const Sidebar = () => {
                             </span>
                         </li>
                         <li className="nav-item">
-                            <span onClick={()=>navigate("/add-orders")} style={{cursor:"pointer"}} className="nav-link text-white">
+                            <span onClick={()=>navigate("/add-order")} style={{cursor:"pointer"}} className="nav-link text-white">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i className="material-icons">add</i>&nbsp;&nbsp;
                                 </div>
