@@ -4,8 +4,7 @@ import Footer from './Footer'
 import masterCard from '../assets/img/logos/mastercard.png'
 
 const Payment = () => {
-    return (
-        <div>           
+    return (                
             <div class="container-fluid py-4">
                 <div class="row">
                     <div class="col-lg-8">
@@ -319,8 +318,7 @@ const Payment = () => {
                     </div>
                 </div>
                 <Footer />
-            </div>
-        </div>
+            </div>      
     )
 }
 

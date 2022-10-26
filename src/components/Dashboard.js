@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
-import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
