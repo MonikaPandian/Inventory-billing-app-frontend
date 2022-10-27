@@ -16,6 +16,7 @@ const Customer = () => {
            
         function updateCustomer(e) {                  
             e.preventDefault()
+            setOpened(false)
             const updateCustomer = {
                 name: customerName,
                 email: email,
@@ -32,6 +33,7 @@ const Customer = () => {
             }) 
             .then((data) => data.json())           
             .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
+            .then(navigate("/home")) 
             .catch((e) => console.log(e));              
         }
     
