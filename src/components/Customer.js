@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
 import { Modal } from '@mantine/core';
-import {useForm} from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 
 const Customer = () => {
+    const navigate = useNavigate()
     const [opened, setOpened] = useState(false);
     const [customerId, setCustomerId] = useState("")
     const [customerName, setCustomerName] = useState("")
@@ -23,19 +24,14 @@ const Customer = () => {
                 contact: contact,
                 lastOrder: lastOrder,
                 img: image
-            }
-            console.log(customerId)
+            }         
             fetch(`https://inventory-billing-121.herokuapp.com/customers/${customerId}`, {
                 method: "PUT",
                 body: JSON.stringify(newCustomer),
                 headers: {
                   "Content-Type": "application/json",
                 }              
-            }) 
-            .then((data) => data.json())           
-            .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                             
-            .catch((e) => console.log(e)); 
-                     
+            })            
         }
     
     function getCustomer(id) {
@@ -56,7 +52,8 @@ const Customer = () => {
             .catch((e) => console.log(e));
     }
 
-    useEffect(() => getCustomers(),[customerId]);    
+    useEffect(() => getCustomers(),[customers]);  
+      
     
     return (
         <div className="container-fluid py-4">
