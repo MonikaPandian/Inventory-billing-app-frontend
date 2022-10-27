@@ -24,6 +24,7 @@ const Customer = () => {
                 lastOrder: lastOrder,
                 img: image
             }
+            console.log(customerId)
             fetch(`https://inventory-billing-121.herokuapp.com/customers/${customerId}`, {
                 method: "PUT",
                 body: JSON.stringify(newCustomer),
@@ -32,13 +33,9 @@ const Customer = () => {
                 }              
             }) 
             .then((data) => data.json())           
-            .then((res) => {console.log(res);})                  
-            .then(window.location.reload()) 
-            // .then((data) => data.json())           
-            // .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
-            // .then(window.location.reload()) 
-            // .catch((e) => console.log(e)); 
-            // setOpened(false)             
+            .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                             
+            .catch((e) => console.log(e)); 
+                     
         }
     
     function getCustomer(id) {
@@ -59,7 +56,7 @@ const Customer = () => {
             .catch((e) => console.log(e));
     }
 
-    useEffect(() => getCustomers(), []);    
+    useEffect(() => getCustomers(),[customerId]);    
     
     return (
         <div className="container-fluid py-4">
