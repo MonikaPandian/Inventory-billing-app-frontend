@@ -28,7 +28,10 @@ const Customer = () => {
                 headers: {
                   "Content-Type": "application/json",
                 }              
-            })              
+            }) 
+            .then((data) => data.json())
+            .then((res) => {setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})           
+            .catch((e) => console.log(e));              
         }
     
     function getCustomer(id) {
