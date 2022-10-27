@@ -14,8 +14,7 @@ const Customer = () => {
     const[image, setImage] = useState("")   
     const [customers, setCustomers] = useState([])
            
-        function updateCustomer(e) { 
-            e.preventDefault()                           
+        function updateCustomer() {                            
             setOpened(false)
             const newCustomer = {
                 name: customerName,
@@ -33,7 +32,7 @@ const Customer = () => {
             }) 
             .then((data) => data.json())           
             .then((res) => {console.log(res);})                  
-            .then(window.location.reload()) 
+            // .then(window.location.reload()) 
             // .then((data) => data.json())           
             // .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
             // .then(window.location.reload()) 
@@ -126,7 +125,7 @@ const Customer = () => {
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title="Customer Update">
-                <div>
+                <form>
                     <div className="mb-3">
                         <label>Customer name</label>
                         <input value={customerName} onChange={(e) => setCustomerName(e.target.value)}
@@ -161,7 +160,7 @@ const Customer = () => {
                     </div>  
                     <div className="mb-1">
                         <label>Last order</label>
-                        <input value={image} style={{cursor:""}} onChange={(e) => setImage(e.target.value)}
+                        <input value={image} style={{cursor:"pointer"}} onChange={(e) => setImage(e.target.value)}
                             type="text"
                             className="form-control"
                             placeholder="Image"
@@ -172,7 +171,7 @@ const Customer = () => {
                             Update
                         </button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )

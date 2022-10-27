@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import Footer from './Footer'
 import { Modal } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
+import {useForm} from '@mantine/core';
+import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 
 const Supplier = () => {
     const navigate = useNavigate();
@@ -11,7 +13,7 @@ const Supplier = () => {
     const [email, setEmail] = useState("")
     const [lastOrder, setLastOrder] = useState("")
     const[deliveryDate, setDeliveryDate] = useState("")
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
       }    
