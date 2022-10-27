@@ -33,7 +33,7 @@ const Customer = () => {
             }) 
             .then((data) => data.json())           
             .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
-            .then(navigate("/home")) 
+            .then(navigate("/customers")) 
             .catch((e) => console.log(e));              
         }
     
