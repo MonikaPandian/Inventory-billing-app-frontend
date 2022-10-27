@@ -18,7 +18,7 @@ const Customer = () => {
         function updateCustomer(e) { 
             e.preventDefault()                           
             setOpened(false)
-            const newCustomer = {
+            const updatedCustomer = {
                 name: customerName,
                 email: email,
                 contact: contact,
@@ -27,7 +27,7 @@ const Customer = () => {
             }         
             fetch(`https://inventory-billing-121.herokuapp.com/customers/${customerId}`, {
                 method: "PUT",
-                body: JSON.stringify(newCustomer),
+                body: JSON.stringify(updatedCustomer),
                 headers: {
                   "Content-Type": "application/json",
                 }              
@@ -120,7 +120,7 @@ const Customer = () => {
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title="Customer Update">
-                <div>
+                <form onSubmit={updateCustomer}>
                     <div className="mb-3">
                         <label>Customer name</label>
                         <input value={customerName} onChange={(e) => setCustomerName(e.target.value)}
@@ -162,11 +162,11 @@ const Customer = () => {
                         />
                     </div>                           
                     <div className="d-grid mt-4">
-                        <button onClick={updateCustomer} className="btn bg-gradient-primary text-white text-capitalize">
+                        <button className="btn bg-gradient-primary text-white text-capitalize">
                             Update
                         </button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )
