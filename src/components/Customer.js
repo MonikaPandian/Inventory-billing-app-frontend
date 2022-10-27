@@ -14,7 +14,7 @@ const Customer = () => {
     const[image, setImage] = useState("")   
     const [customers, setCustomers] = useState([])
            
-        function updateCustomer() {           
+        function updateCustomer() {                  
             const updateCustomer = {
                 name: customerName,
                 email: email,
@@ -29,8 +29,8 @@ const Customer = () => {
                   "Content-Type": "application/json",
                 }              
             }) 
-            .then((data) => data.json())
-            .then((res) => {setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})           
+            .then((data) => data.json())           
+            .then((res) => {setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
             .catch((e) => console.log(e));              
         }
     
@@ -161,7 +161,7 @@ const Customer = () => {
                         />
                     </div>                           
                     <div className="d-grid mt-4">
-                        <button className="btn bg-gradient-primary text-white text-capitalize">
+                        <button  className="btn bg-gradient-primary text-white text-capitalize">
                             Update
                         </button>
                     </div>
