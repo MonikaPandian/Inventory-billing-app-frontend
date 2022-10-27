@@ -87,18 +87,18 @@ const Customer = () => {
                                                                 <img src={cust.img} className="avatar avatar-sm me-3 border-radius-lg" alt="user1" />
                                                             </div>
                                                             <div className="d-flex flex-column justify-content-center">
-                                                                <h6 className="mb-0 text-sm">{cust.name}</h6>                                                                
+                                                                <h6 className="font-weight-bold text-sm">{cust.name}</h6>                                                                
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <p className="text-sm font-weight-bold mb-0">{cust.contact}</p>
+                                                        <p className="text-sm font-weight-bold">{cust.contact}</p>
                                                     </td>
                                                     <td className="align-middle text-center text-sm">
-                                                        <p className="text-sm font-weight-bold mb-0">{cust.email}</p>
+                                                        <p className="text-sm font-weight-bold">{cust.email}</p>
                                                     </td>
                                                     <td className="align-middle text-center">
-                                                        <span className="text-xs font-weight-bold">{cust.lastOrder}</span>
+                                                        <span className="text-sm font-weight-bold">{cust.lastOrder}</span>
                                                     </td>
                                                     <td className="align-middle text-center">
                                                         <span onClick={()=>{setOpened(true);getCustomer(cust._id)}} style={{ textDecoration: "underline",cursor:"pointer" }} className="font-weight-bold text-sm" data-toggle="tooltip" data-original-title="Edit user">
