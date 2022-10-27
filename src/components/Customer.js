@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
 import { Modal } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
 
 const Customer = () => {
-    const navigate = useNavigate();
     const [opened, setOpened] = useState(false);
     const [customerId, setCustomerId] = useState("")
     const [customerName, setCustomerName] = useState("")
@@ -14,8 +12,8 @@ const Customer = () => {
     const[image, setImage] = useState("")   
     const [customers, setCustomers] = useState([])
            
-        function updateCustomer(e) {                  
-            e.preventDefault()
+        function updateCustomer(e) {  
+            e.preventDefault()                           
             setOpened(false)
             const updateCustomer = {
                 name: customerName,
@@ -33,7 +31,7 @@ const Customer = () => {
             }) 
             .then((data) => data.json())           
             .then((res) => {console.log(res);setCustomerName(res.name);setContact(res.contact);setEmail(res.email);setLastOrder(res.lastOrder);setCustomerId(res._id);setImage(res.img)})                  
-            .then(navigate("/customers")) 
+            .then(window.location.reload()) 
             .catch((e) => console.log(e));              
         }
     
@@ -55,8 +53,8 @@ const Customer = () => {
             .catch((e) => console.log(e));
     }
 
-    useEffect(() => getCustomers(), []);
-
+    useEffect(() => getCustomers(), []);    
+    
     return (
         <div className="container-fluid py-4">
             <div className="row">
@@ -76,7 +74,7 @@ const Customer = () => {
                                             <th className="text-uppercase text-secondary text-md font-weight-bolder ps-2">Contact</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Email</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Last Order</th>
-                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Delivered Date</th>
+                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Edit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -103,7 +101,7 @@ const Customer = () => {
                                                         <span className="text-xs font-weight-bold">{cust.lastOrder}</span>
                                                     </td>
                                                     <td className="align-middle text-center">
-                                                        <span onClick={()=>{setOpened(true);getCustomer(cust._id)}} style={{ textDecoration: "underline" }} className="font-weight-bold text-sm" data-toggle="tooltip" data-original-title="Edit user">
+                                                        <span onClick={()=>{setOpened(true);getCustomer(cust._id)}} style={{ textDecoration: "underline",cursor:"pointer" }} className="font-weight-bold text-sm" data-toggle="tooltip" data-original-title="Edit user">
                                                             Edit
                                                         </span>
                                                     </td>
@@ -164,7 +162,7 @@ const Customer = () => {
                         />
                     </div>                           
                     <div className="d-grid mt-4">
-                        <button  className="btn bg-gradient-primary text-white text-capitalize">
+                        <button className="btn bg-gradient-primary text-white text-capitalize">
                             Update
                         </button>
                     </div>
