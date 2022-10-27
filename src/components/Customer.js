@@ -22,7 +22,7 @@ const Customer = () => {
                 lastOrder: lastOrder,
                 img: image
             }
-            fetch(`http://localhost:9002/customers/${customerId}`, {
+            fetch(`https://inventory-billing-121.herokuapp.com/customers/${customerId}`, {
                 method: "PUT",
                 body: JSON.stringify(updateCustomer),
                 headers: {
@@ -32,7 +32,7 @@ const Customer = () => {
         }
     
     function getCustomer(id) {
-        fetch(`http://localhost:9002/customers/${id}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/customers/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -41,7 +41,7 @@ const Customer = () => {
     }
 
     function getCustomers() {
-        fetch("http://localhost:9002/customers", {
+        fetch("https://inventory-billing-121.herokuapp.com/customers", {
             method: "GET"
         })
             .then((data) => data.json())
