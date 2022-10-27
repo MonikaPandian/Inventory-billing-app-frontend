@@ -165,20 +165,17 @@ export const options2 = {
 export const data2 = {
   labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   datasets: [{
-    label: "Mobile apps",
-    tension: 0,
-    borderWidth: 0,
+    label: "sales",
+    tension: 0,   
     pointRadius: 5,
     pointBackgroundColor: "rgba(255, 255, 255, .8)",
     pointBorderColor: "transparent",
-    borderColor: "rgba(255, 255, 255, .8)",
     borderColor: "rgba(255, 255, 255, .8)",
     borderWidth: 4,
     backgroundColor: "transparent",
     fill: true,
     data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
     maxBarThickness: 6
-
   }],
 };
 
@@ -245,8 +242,7 @@ export const data3 = {
   labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   datasets: [{
     label: "deliveries",
-    tension: 0,
-    borderWidth: 0,
+    tension: 0,   
     pointRadius: 5,
     pointBackgroundColor: "rgba(255, 255, 255, .8)",
     pointBorderColor: "transparent",
