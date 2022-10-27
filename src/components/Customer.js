@@ -12,8 +12,7 @@ const Customer = () => {
     const[image, setImage] = useState("")   
     const [customers, setCustomers] = useState([])
            
-        function updateCustomer(e) {  
-            e.preventDefault()                           
+        function updateCustomer() {                            
             setOpened(false)
             const updateCustomer = {
                 name: customerName,
@@ -162,7 +161,7 @@ const Customer = () => {
                         />
                     </div>                           
                     <div className="d-grid mt-4">
-                        <button type="submit" onClick={updateCustomer} className="btn bg-gradient-primary text-white text-capitalize">
+                        <button onClick={updateCustomer} className="btn bg-gradient-primary text-white text-capitalize">
                             Update
                         </button>
                     </div>
