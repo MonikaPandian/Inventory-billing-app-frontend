@@ -120,7 +120,7 @@ const Customer = () => {
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title="Customer Update">
-                <form onSubmit={updateCustomer}>
+                <form>
                     <div className="mb-3">
                         <label>Customer name</label>
                         <input value={customerName} onChange={(e) => setCustomerName(e.target.value)}
@@ -162,7 +162,7 @@ const Customer = () => {
                         />
                     </div>                           
                     <div className="d-grid mt-4">
-                        <button className="btn bg-gradient-primary text-white text-capitalize">
+                        <button onClick={updateCustomer} className="btn bg-gradient-primary text-white text-capitalize">
                             Update
                         </button>
                     </div>
