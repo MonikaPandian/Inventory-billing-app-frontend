@@ -120,7 +120,7 @@ const Customer = () => {
                 opened={opened}
                 onClose={() => setOpened(false)}
                 title="Customer Update">
-                <form>
+                <div>
                     <div className="mb-3">
                         <label>Customer name</label>
                         <input value={customerName} onChange={(e) => setCustomerName(e.target.value)}
@@ -166,7 +166,7 @@ const Customer = () => {
                             Update
                         </button>
                     </div>
-                </form>
+                </div>
             </Modal>
         </div>
     )
