@@ -14,7 +14,8 @@ const Customer = () => {
     const[image, setImage] = useState("")   
     const [customers, setCustomers] = useState([])
            
-        function updateCustomer() {                  
+        function updateCustomer(e) {                  
+            e.preventDefault()
             const updateCustomer = {
                 name: customerName,
                 email: email,
