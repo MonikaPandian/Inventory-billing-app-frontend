@@ -20,7 +20,7 @@ const Customer = () => {
     const [newCustomerLastOrder, setNewCustomerLastOrder] = useState("")
     const [newCustomerImage, setNewCustomerImage] = useState("")
 
-    function updateCustomer(e) {
+    const updateCustomer=(e)=> {
         e.preventDefault()
         setOpened(false)
         const updatedCustomer = {
@@ -39,7 +39,7 @@ const Customer = () => {
         })
     }
 
-    function addCustomer(e) {
+    const addCustomer=(e)=> {
         e.preventDefault()
         setModal(false);
         const newCustomer = {
@@ -58,7 +58,7 @@ const Customer = () => {
         })
     }
 
-    function getCustomer(id) {
+    const getCustomer=(id)=> {
         fetch(`https://inventory-billing-121.herokuapp.com/customers/${id}`, {
             method: "GET"
         })
@@ -67,7 +67,7 @@ const Customer = () => {
             .catch((e) => console.log(e));
     }
 
-    function getCustomers() {
+    const getCustomers=()=> {
         fetch("https://inventory-billing-121.herokuapp.com/customers", {
             method: "GET"
         })
@@ -164,7 +164,7 @@ const Customer = () => {
                     <div className="mb-1">
                         <label>Email</label>
                         <input value={email} onChange={(e) => setEmail(e.target.value)}
-                            type="text"
+                            type="email"
                             className="form-control"
                             placeholder="Enter email"
                         />

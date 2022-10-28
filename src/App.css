@@ -56,3 +56,7 @@
    text-decoration: underline;
 }
 
+.product-image{
+  height:180px !important;
+  object-fit: cover;
+}

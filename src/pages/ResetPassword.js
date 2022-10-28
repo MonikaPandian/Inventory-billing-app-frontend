@@ -29,7 +29,7 @@ const ResetPassword = () => {
                     window.alert("User not exists!!")
                     navigate("/sign-in")                                                                    
                 }
-                else if(data.message === "Password updated"){
+                else if(data.message === "Password updated successfully"){
                     window.alert("Password updated")
                 }
                 else{
