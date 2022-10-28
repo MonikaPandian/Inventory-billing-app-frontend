@@ -3,8 +3,6 @@ import Footer from './Footer'
 import { Modal } from '@mantine/core';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit'
-import Sidebar from './Sidebar'
-import Navbar from './Navbar'
 
 const Customer = () => {
     const [updateModal, setUpdateModal] = useState(false);
