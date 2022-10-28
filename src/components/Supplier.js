@@ -30,7 +30,7 @@ const Supplier = () => {
             lastOrder: lastOrder,
             img: image
         }
-        fetch(`http://localhost:9002/suppliers/${supplierId}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/suppliers/${supplierId}`, {
             method: "PUT",
             body: JSON.stringify(updatedSupplier),
             headers: {
@@ -49,7 +49,7 @@ const Supplier = () => {
             lastOrder: newSupplierLastOrder,
             img: newSupplierImage
         }
-        fetch("http://localhost:9002/suppliers", {
+        fetch("https://inventory-billing-121.herokuapp.com/suppliers", {
             method: "POST",
             body: JSON.stringify(newSupplier),
             headers: {
@@ -59,7 +59,7 @@ const Supplier = () => {
     }
 
     const getSupplier=(id)=> {
-        fetch(`http://localhost:9002/suppliers/${id}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/suppliers/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
