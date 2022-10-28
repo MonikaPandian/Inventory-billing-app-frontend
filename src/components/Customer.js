@@ -3,10 +3,12 @@ import Footer from './Footer'
 import { Modal } from '@mantine/core';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit'
+import Sidebar from './Sidebar'
+import Navbar from './Navbar'
 
 const Customer = () => {
-    const [opened, setOpened] = useState(false);
-    const [modal, setModal] = useState(false);
+    const [updateModal, setUpdateModal] = useState(false);
+    const [addModal, setAddModal] = useState(false);
     const [customerId, setCustomerId] = useState("")
     const [customerName, setCustomerName] = useState("")
     const [contact, setContact] = useState("")
@@ -20,9 +22,9 @@ const Customer = () => {
     const [newCustomerLastOrder, setNewCustomerLastOrder] = useState("")
     const [newCustomerImage, setNewCustomerImage] = useState("")
 
-    const updateCustomer=(e)=> {
+    const updateCustomer = (e) => {
         e.preventDefault()
-        setOpened(false)
+        setUpdateModal(false)
         const updatedCustomer = {
             name: customerName,
             email: email,
@@ -39,9 +41,9 @@ const Customer = () => {
         })
     }
 
-    const addCustomer=(e)=> {
+    const addCustomer = (e) => {
         e.preventDefault()
-        setModal(false);
+        setAddModal(false);
         const newCustomer = {
             name: newCustomerName,
             email: newCustomerEmail,
@@ -58,7 +60,7 @@ const Customer = () => {
         })
     }
 
-    const getCustomer=(id)=> {
+    const getCustomer = (id) => {
         fetch(`https://inventory-billing-121.herokuapp.com/customers/${id}`, {
             method: "GET"
         })
@@ -67,7 +69,7 @@ const Customer = () => {
             .catch((e) => console.log(e));
     }
 
-    const getCustomers=()=> {
+    const getCustomers = () => {
         fetch("https://inventory-billing-121.herokuapp.com/customers", {
             method: "GET"
         })
@@ -79,6 +81,7 @@ const Customer = () => {
     useEffect(() => getCustomers(), [customers]);
 
     return (
+
         <div className="container-fluid py-4">
             <div className="row">
                 <div className="col-12">
@@ -86,7 +89,7 @@ const Customer = () => {
                         <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div className="bg-gradient-primary shadow-primary border-radius-lg p-2 d-flex justify-content-between">
                                 <h6 className="text-white text-capitalize ps-3 pt-2">Customers table</h6>
-                                <button onClick={() => setModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>
+                                <button onClick={() => setAddModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>
                             </div>
                         </div>
                         <div className="card-body px-0 pb-2">
@@ -125,7 +128,7 @@ const Customer = () => {
                                                         <span className="text-sm font-weight-bold">{cust.lastOrder}</span>
                                                     </td>
                                                     <td className="align-middle text-center">
-                                                        <IconButton onClick={() =>{ setOpened(true);getCustomer(cust._id)}} color="primary">
+                                                        <IconButton onClick={() => { setUpdateModal(true); getCustomer(cust._id) }} color="primary">
                                                             <EditIcon />
                                                         </IconButton>
                                                     </td>
@@ -141,8 +144,8 @@ const Customer = () => {
             </div>
             <Footer />
             <Modal
-                opened={opened}
-                onClose={() => setOpened(false)}
+                opened={updateModal}
+                onClose={() => setUpdateModal(false)}
                 title="Customer Update">
                 <form onSubmit={updateCustomer}>
                     <div className="mb-1">
@@ -193,8 +196,8 @@ const Customer = () => {
                 </form>
             </Modal>
             <Modal
-                opened={modal}
-                onClose={() => setModal(false)}
+                opened={addModal}
+                onClose={() => setAddModal(false)}
                 title="New customer">
                 <form onSubmit={addCustomer}>
                     <div className="mb-1">
