@@ -99,7 +99,7 @@ const Product = () => {
                   <h6 className="card-title">{product.name}</h6>
                   <IconButton onClick={() => { setUpdateModal(true); getProduct(product._id) }} color="secondary">
                     <EditIcon />
-                  </IconButton>
+                  </IconButton>&nbsp;&nbsp;&nbsp;&nbsp;
                   <IconButton onClick={() => removeProduct(product._id)} color="error">
                     <DeleteIcon />
                   </IconButton>

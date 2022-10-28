@@ -52,7 +52,7 @@ const Signup = () => {
                     </form>
                 </div>
             </nav>
-            <div className="auth-wrapper mt-4">
+            <div className="auth-wrapper mt-5">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>
                         <h3>Sign Up</h3>
