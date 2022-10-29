@@ -13,7 +13,7 @@ const Login = () => {
             username: email,                          
             password: password
         };
-        fetch("https://inventory-billing-121.herokuapp.com/users/login", {
+        fetch("http://localhost:9002/users/login", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -21,8 +21,9 @@ const Login = () => {
             }
         })
             .then((data) => data.json())
-            .then((data) => {
+            .then((data) => {console.log(data)
                 if (data.message === "Successful login") {
+                    localStorage.setItem("userDetails", JSON.stringify(data))
                     navigate("/home")                                                        
                 }
                 else if(data.message === "Invalid credentials"){
