@@ -83,7 +83,7 @@ const Payment = () => {
     useEffect(() => getCards(), [paymentCards]);
 
     const getBills = () => {
-        fetch("http://localhost:9002/bills", {
+        fetch("https://inventory-billing-121.herokuapp.com/bills", {
             method: "GET"
         })
             .then((data) => data.json())
@@ -103,7 +103,7 @@ const Payment = () => {
             amount: newAmount,
             vatNumber: newVatNumber
         }
-        fetch("http://localhost:9002/bills", {
+        fetch("https://inventory-billing-121.herokuapp.com/bills", {
             method: "POST",
             body: JSON.stringify(newBill),
             headers: {
@@ -113,7 +113,7 @@ const Payment = () => {
     }
 
     const getBill = (id) => {
-        fetch(`http://localhost:9002/bills/${id}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/bills/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -122,7 +122,7 @@ const Payment = () => {
     }
     
     const removeBill = (id) => {
-        fetch(`http://localhost:9002/bills/${id}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/bills/${id}`, {
           method: "DELETE"
         })
           .then((data) => data.json())
@@ -144,7 +144,7 @@ const Payment = () => {
            amount: amount,
            vatNumber: vatNumber
         }
-        fetch(`http://localhost:9002/bills/${billId}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/bills/${billId}`, {
             method: "PUT",
             body: JSON.stringify(updatedBill),
             headers: {
