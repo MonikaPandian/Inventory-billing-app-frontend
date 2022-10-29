@@ -3,6 +3,8 @@ import patternTree from '../assets/img/illustrations/pattern-tree.svg'
 import Footer from './Footer'
 import masterCard from '../assets/img/logos/mastercard.png'
 import { Modal } from '@mantine/core';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Payment = () => {
     const [updateModal, setUpdateModal] = useState(false);
@@ -13,6 +15,20 @@ const Payment = () => {
     const [cardId, setCardId] = useState("")
     const [newCardNumber, setNewCardNumber] = useState("")
     const [newCardImage, setNewCardImage] = useState("")
+    const [bills, setBills] = useState([])
+    const [billUpdateModal, setBillUpdateModal] = useState(false);
+    const [billAddModal, setBillAddModal] = useState(false);
+    const [customerName, setCustomerName] = useState("")
+    const [email, setEmail] = useState("")
+    const [mobile, setMobile] = useState("")
+    const [vatNumber, setVatNumber] = useState("")
+    const [amount, setAmount] = useState("")
+    const [billId , setBillId] = useState("")
+    const [newCustomerName , setNewCustomerName] = useState("")
+    const [newEmail , setNewEmail] = useState("")
+    const [newMobile , setNewMobile] = useState("")
+    const [newVatNumber , setNewVatNumber] = useState("")
+    const [newAmount , setNewAmount] = useState("")
 
     const updateCard = (e) => {
         e.preventDefault()
@@ -27,7 +43,7 @@ const Payment = () => {
             headers: {
                 "Content-Type": "application/json",
             }
-        })       
+        })
     }
 
     const addCard = (e) => {
@@ -65,6 +81,77 @@ const Payment = () => {
     }
 
     useEffect(() => getCards(), [paymentCards]);
+
+    const getBills = () => {
+        fetch("http://localhost:9002/bills", {
+            method: "GET"
+        })
+            .then((data) => data.json())
+            .then((res) => {setBills(res)})
+            .catch((e) => console.log(e));
+    }
+
+    useEffect(() => getBills(), [bills]);
+
+    const addBill = (e) => {
+        e.preventDefault()
+        setBillAddModal(false);
+        const newBill = {
+            customerName : newCustomerName,
+            email: newEmail,
+            mobile: newMobile,
+            amount: newAmount,
+            vatNumber: newVatNumber
+        }
+        fetch("http://localhost:9002/bills", {
+            method: "POST",
+            body: JSON.stringify(newBill),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+    }
+
+    const getBill = (id) => {
+        fetch(`http://localhost:9002/bills/${id}`, {
+            method: "GET"
+        })
+            .then((data) => data.json())
+            .then((res) => {setCustomerName(res.customerName);setEmail(res.email);setMobile(res.mobile);setVatNumber(res.vatNumber);setAmount(res.amount);setBillId(res._id)})
+            .catch((e) => console.log(e));
+    }
+    
+    const removeBill = (id) => {
+        fetch(`http://localhost:9002/bills/${id}`, {
+          method: "DELETE"
+        })
+          .then((data) => data.json())
+          .then(toast.success('Deleted successfully!', {
+            autoClose: 3000,
+            theme: "colored",
+          })
+          )
+          .catch((e) => console.log(e))
+      }
+    
+    const updateBill = (e) => {
+        e.preventDefault()
+        setBillUpdateModal(false)
+        const updatedBill = {
+           customerName : customerName,
+           email: email,
+           mobile: mobile,
+           amount: amount,
+           vatNumber: vatNumber
+        }
+        fetch(`http://localhost:9002/bills/${billId}`, {
+            method: "PUT",
+            body: JSON.stringify(updatedBill),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+    }
 
     return (
         <div className="container-fluid py-4">
@@ -140,7 +227,7 @@ const Payment = () => {
                                             <h6 className="mb-0">Payment Method</h6>
                                         </div>
                                         <div className="col-6 text-end">
-                                            <span onClick={()=>{setAddModal(true)}} className="btn bg-gradient-dark mb-0" href="#"><i className="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Card</span>
+                                            <span onClick={() => { setAddModal(true) }} className="btn bg-gradient-dark mb-0" href="#"><i className="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Card</span>
                                         </div>
                                     </div>
                                 </div>
@@ -240,42 +327,23 @@ const Payment = () => {
                         </div>
                         <div className="card-body pt-4 p-3">
                             <ul className="list-group">
-                                <li className="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                                    <div className="d-flex flex-column">
-                                        <h6 className="mb-3 text-sm">Oliver Liam</h6>
-                                        <span className="mb-2 text-xs">Company Name: <span className="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
-                                        <span className="mb-2 text-xs">Email Address: <span className="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
-                                        <span className="text-xs">VAT Number: <span className="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
-                                    </div>
-                                    <div className="ms-auto text-end">
-                                        <a className="btn btn-link text-danger text-gradient px-3 mb-0" href="#"><i className="material-icons text-sm me-2">delete</i>Delete</a>
-                                        <a className="btn btn-link text-dark px-3 mb-0" href="#"><i className="material-icons text-sm me-2">edit</i>Edit</a>
-                                    </div>
-                                </li>
-                                <li className="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-                                    <div className="d-flex flex-column">
-                                        <h6 className="mb-3 text-sm">Lucas Harper</h6>
-                                        <span className="mb-2 text-xs">Company Name: <span className="text-dark font-weight-bold ms-sm-2">Stone Tech Zone</span></span>
-                                        <span className="mb-2 text-xs">Email Address: <span className="text-dark ms-sm-2 font-weight-bold">lucas@stone-tech.com</span></span>
-                                        <span className="text-xs">VAT Number: <span className="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
-                                    </div>
-                                    <div className="ms-auto text-end">
-                                        <a className="btn btn-link text-danger text-gradient px-3 mb-0" href="#"><i className="material-icons text-sm me-2">delete</i>Delete</a>
-                                        <a className="btn btn-link text-dark px-3 mb-0" href="#"><i className="material-icons text-sm me-2">edit</i>Edit</a>
-                                    </div>
-                                </li>
-                                <li className="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-                                    <div className="d-flex flex-column">
-                                        <h6 className="mb-3 text-sm">Ethan James</h6>
-                                        <span className="mb-2 text-xs">Company Name: <span className="text-dark font-weight-bold ms-sm-2">Fiber Notion</span></span>
-                                        <span className="mb-2 text-xs">Email Address: <span className="text-dark ms-sm-2 font-weight-bold">ethan@fiber.com</span></span>
-                                        <span className="text-xs">VAT Number: <span className="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
-                                    </div>
-                                    <div className="ms-auto text-end">
-                                        <a className="btn btn-link text-danger text-gradient px-3 mb-0" href="#"><i className="material-icons text-sm me-2">delete</i>Delete</a>
-                                        <a className="btn btn-link text-dark px-3 mb-0" href="#"><i className="material-icons text-sm me-2">edit</i>Edit</a>
-                                    </div>
-                                </li>
+                                {bills.map((bill) => {
+                                    return (
+                                        <li key={bill._id} className="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                                            <div className="d-flex flex-column">
+                                                <h6 className="mb-3 text-sm">{bill.customerName}</h6>
+                                                <span className="mb-2 text-sm">Email:<span className="text-dark font-weight-bold ms-sm-2">{bill.email}</span></span>
+                                                <span className="mb-2 text-sm">Mobile:<span className="text-dark ms-sm-2 font-weight-bold">{bill.mobile}</span></span>
+                                                <span className="text-sm mb-2">VAT Number: <span className="text-dark ms-sm-2 font-weight-bold">{bill.vatNumber}</span></span>
+                                                <span className="text-sm">Bill Amount: <span className="text-dark ms-sm-2 font-weight-bold">₹ {bill.amount}</span></span>
+                                            </div>
+                                            <div className="ms-auto text-end">
+                                                <span onClick={()=>{removeBill(bill._id)}} className="btn btn-link text-danger text-gradient px-3 mb-0"><i className="material-icons text-sm me-2">delete</i>Delete</span>
+                                                <span onClick={()=>{setBillUpdateModal(true);getBill(bill._id)}} className="btn btn-link text-dark px-3 mb-0"><i className="material-icons text-sm me-2">edit</i>Edit</span>
+                                            </div>
+                                        </li>
+                                    )
+                                })}                               
                             </ul>
                         </div>
                     </div>
@@ -433,6 +501,87 @@ const Payment = () => {
                     </div>
                 </form>
             </Modal>
+            <Modal
+                opened={billUpdateModal}
+                onClose={() => setBillUpdateModal(false)}
+                title="Bill Update">
+                <form onSubmit={updateBill}>
+                    <div className="mb-1">
+                        <label>Customer name</label>
+                        <input value={customerName} onChange={(e) => setCustomerName(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter customer name"
+                        />
+                    </div>
+                    <div className="mb-1">
+                        <label>Email</label>
+                        <input value={email} onChange={(e) => setEmail(e.target.value)}
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter email"
+                        />
+                    </div>
+                    <div className="mb-1">
+                        <label>Mobile</label>
+                        <input value={mobile} onChange={(e) => setMobile(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter mobile"
+                        />
+                    </div>
+                    <div className="mb-1">
+                        <label>VAT number</label>
+                        <input value={vatNumber} onChange={(e) => setVatNumber(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter vat number"
+                        />
+                    </div>
+                    <div className="mb-1">
+                        <label>Amount</label>
+                        <input value={amount} onChange={(e) => setAmount(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter amount"
+                        />
+                    </div>
+                    <div className="d-grid mt-4">
+                        <button className="btn bg-gradient-primary text-white text-capitalize">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </Modal>
+            <Modal
+                opened={billAddModal}
+                onClose={() => setBillAddModal(false)}
+                title="New card">
+                <form onSubmit={addBill}>
+                    <div className="mb-1">
+                        <label>Card number</label>
+                        <input onChange={(e) => setNewCardNumber(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter card number"
+                        />
+                    </div>
+                    <div className="mb-1">
+                        <label>Card Image</label>
+                        <input onChange={(e) => setNewCardImage(e.target.value)}
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter card image"
+                        />
+                    </div>
+                    <div className="d-grid mt-4">
+                        <button className="btn bg-gradient-primary text-white text-capitalize">
+                            Create
+                        </button>
+                    </div>
+                </form>
+            </Modal>
+            <ToastContainer/>
         </div>
     )
 }
