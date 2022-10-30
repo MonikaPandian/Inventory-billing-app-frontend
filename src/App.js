@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route exact path="/" element={<Login />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-in-admin" element={<AdminLogin />} />       
         <Route path="/sign-up" element={<SignUp />} />
@@ -31,12 +31,13 @@ function App() {
         <Route path="/customers" element={<Customers />} />
         <Route path="/suppliers" element={<Suppliers />} />
         <Route path="/payments" element={<Payments />} /> 
+        <Route path="/profile" element={<Profile />} />
         {/* <Route path="/invoices" element={<Invoices />} />    
         <Route path="/create-invoice" element={<CreateInvoice />} />
         <Route path="/orders" element={<Orders />} /> 
         <Route path="/add-order" element={<AddOrder />} /> 
         <Route path="/notifications" element={<Notifications />} />          
-        <Route path="/profile" element={<Profile />} />   */}
+          */}
                    
       </Routes>
     </div>

@@ -21,7 +21,7 @@ const Login = () => {
             }
         })
             .then((data) => data.json())
-            .then((data) => {                
+            .then((data) => {
                 if (data.message === "Successful login") {
                     localStorage.setItem("userDetails", JSON.stringify(data))
                     navigate("/home")
@@ -40,11 +40,11 @@ const Login = () => {
             <nav className="navbar bg-gradient-primary fixed-top">
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
-                    <form className="d-flex" role="search">
+                    <div className="d-flex" role="search">
                         <button onClick={() => navigate("/sign-in-admin")} className="btn navbar-btn btn-light text-capitalize"> Admin Login</button>
                         <button onClick={() => navigate("/sign-in")} className="btn navbar-btn btn-light text-capitalize">User Login</button>
-                        <button onClick={() => navigate("/sign-up")} className="btn navbar-btn btn-light text-capitalize">Signup</button>
-                    </form>
+                        <button onClick={() => navigate("/sign-up")} className="btn navbar-btn btn-light text-capitalize">User Signup</button>
+                    </div>
                 </div>
             </nav>
             <div className="auth-wrapper">
@@ -87,3 +87,5 @@ const Login = () => {
 }
 
 export default Login
+   
+

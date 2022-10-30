@@ -16,6 +16,7 @@ const Product = () => {
           setUserDetails(userDetails);      
   }, [userDetails.id]);
 
+  // console.log(userDetails)
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [productId, setProductId] = useState("")
