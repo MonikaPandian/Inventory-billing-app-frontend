@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const ResetPassword = () => {
-    const[newPassword, setNewPassword] = useState('')
-    const[confirmPassword, setConfirmPassword] = useState('')
-    const { id, token} = useParams();
+    const [newPassword, setNewPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const { id, token } = useParams();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if(newPassword !== confirmPassword){
+        if (newPassword !== confirmPassword) {
             window.alert("passwords does not match!!")
             return;
-        }               
+        }
         const updatePassword = {
-            password: newPassword,                                      
-        }       
+            password: newPassword,
+        }
         fetch(`https://inventory-billing-121.herokuapp.com/users/reset-password/${id}/${token}`, {
             method: "POST",
             body: JSON.stringify(updatePassword),
@@ -27,12 +27,12 @@ const ResetPassword = () => {
             .then((data) => {
                 if (data.message === "User not exists!!") {
                     window.alert("User not exists!!")
-                    navigate("/sign-in")                                                                    
+                    navigate("/sign-in")
                 }
-                else if(data.message === "Password updated successfully"){
+                else if (data.message === "Password updated successfully") {
                     window.alert("Password updated")
                 }
-                else{
+                else {
                     window.alert("Token expired")
                 }
             })
@@ -45,6 +45,7 @@ const ResetPassword = () => {
                 <div className="container">
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
+                        <button onClick={() => navigate("/sign-in-admin")} className="btn navbar-btn btn-light text-capitalize"> Admin Login</button>
                         <button onClick={() => navigate("/sign-in")} className="btn navbar-btn btn-light text-capitalize">Login</button>
                         <button onClick={() => navigate("/sign-up")} className="btn navbar-btn btn-light text-capitalize">Signup</button>
                     </form>
@@ -57,7 +58,7 @@ const ResetPassword = () => {
                         <div className="mb-3">
                             <label>New Password</label>
                             <input value={newPassword}
-                                type="password" onChange={(e)=>setNewPassword(e.target.value)}
+                                type="password" onChange={(e) => setNewPassword(e.target.value)}
                                 className="form-control"
                                 placeholder="Enter new password" autoComplete='off'
                             />
@@ -65,7 +66,7 @@ const ResetPassword = () => {
                         <div className="mb-3">
                             <label>Confirm Password</label>
                             <input value={confirmPassword}
-                                type="password"  onChange={(e)=>setConfirmPassword(e.target.value)}
+                                type="password" onChange={(e) => setConfirmPassword(e.target.value)}
                                 className="form-control"
                                 placeholder="Enter confirm password" autoComplete='off'
                             />

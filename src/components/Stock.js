@@ -8,6 +8,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Stock = () => {
+  const [userDetails, setUserDetails] = useState({});
+  const {username , isAdmin} = userDetails;
+  console.log(isAdmin)
+
+  useEffect(() => {
+      const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      if (userDetails) {           
+          setUserDetails(userDetails);
+      }
+  }, []);
+
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [stockId, setStockId] = useState("")

@@ -1,31 +1,34 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ForgotPassword = () => {
+const AdminLogin = () => {
 
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("admin@example.com");
+    const [password, setPassword] = useState("123456");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const userEmail = {
+        const admin = {
             username: email,
+            password: password
         };
-        fetch("https://inventory-billing-121.herokuapp.com/users/forgot-password", {
+        fetch("http://localhost:9002/admin/login", {
             method: "POST",
-            body: JSON.stringify(userEmail),
+            body: JSON.stringify(admin),
             headers: {
                 "Content-Type": "application/json",
             }
         })
             .then((data) => data.json())
             .then((data) => {
-                if (data.message === "success") {
-                    window.alert("Password reset link has been sent to your mail. Please check your mail")
-                    navigate("/sign-in")
+                console.log(data)
+                if (data.message === "Successful login") {
+                    localStorage.setItem("userDetails", JSON.stringify(data))
+                    navigate("/home")
                 }
-                else if (data.message === "Enter a valid and registered email Id") {
-                    window.alert("Enter a valid and registered email Id")
+                else if (data.message === "Invalid credentials") {
+                    window.alert("Invalid credentials")
                 }
                 else {
                     window.alert("something went wrong")
@@ -40,7 +43,7 @@ const ForgotPassword = () => {
                     <button className="navbar-brand text-white app-name btn text-capitalize m-2">Inventory Billing Application</button>
                     <form className="d-flex" role="search">
                         <button onClick={() => navigate("/sign-in-admin")} className="btn navbar-btn btn-light text-capitalize"> Admin Login</button>
-                        <button onClick={() => navigate("/sign-in")} className="btn navbar-btn btn-light text-capitalize">Login</button>
+                        <button onClick={() => navigate("/sign-in")} className="btn navbar-btn btn-light text-capitalize">User Login</button>
                         <button onClick={() => navigate("/sign-up")} className="btn navbar-btn btn-light text-capitalize">Signup</button>
                     </form>
                 </div>
@@ -48,20 +51,28 @@ const ForgotPassword = () => {
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>
-                        <h3>Forgot Password</h3>
+                        <h3>Sign In</h3>
                         <div className="mb-3">
                             <label>Email address</label>
-                            <input
-                                type="email" value={email}
-                                className="form-control" onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter email" required
+                            <input value={email} onChange={(e) => setEmail(e.target.value)}
+                                type="email"
+                                className="form-control"
+                                placeholder="Enter email"
                             />
                         </div>
-                        <div className="d-grid mt-2">
+                        <div className="mb-4">
+                            <label>Password</label>
+                            <input value={password} onChange={(e) => setPassword(e.target.value)}
+                                type="password"
+                                className="form-control"
+                                placeholder="Enter password" autoComplete='off'
+                            />
+                        </div>                       
+                        <div className="d-grid">
                             <button className="btn bg-gradient-primary text-white text-capitalize">
-                                Send Password reset mail
+                                Login
                             </button>
-                        </div>
+                        </div>                       
                     </form>
                 </div>
             </div>
@@ -70,4 +81,4 @@ const ForgotPassword = () => {
     )
 }
 
-export default ForgotPassword
+export default AdminLogin

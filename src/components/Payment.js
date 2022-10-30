@@ -227,7 +227,7 @@ const Payment = () => {
                                             <h6 className="mb-0">Payment Method</h6>
                                         </div>
                                         <div className="col-6 text-end">
-                                            <span onClick={() => { setAddModal(true) }} className="btn bg-gradient-dark mb-0" href="#"><i className="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Card</span>
+                                            <span onClick={() => { setAddModal(true) }} className="btn bg-gradient-dark mb-0"><i className="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Card</span>
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +235,8 @@ const Payment = () => {
                                     <div className="row">
                                         {paymentCards.map((card) => {
                                             return (
-                                                <div key={card._id} className="col-md-6 mb-md-0 mb-4">
-                                                    <div className="card card-body mb-4 border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                                <div key={card._id} className="col-md-6 mb-md-0 g-2">
+                                                    <div className="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                                                         <img className="w-10 me-3 mb-0" src={card.image} alt="logo" />
                                                         <h6 className="mb-0">{card.number}</h6>
                                                         <i onClick={() => { setUpdateModal(true); getCard(card._id) }} className="material-icons ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card">edit</i>

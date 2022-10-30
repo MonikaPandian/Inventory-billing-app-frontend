@@ -13,12 +13,14 @@ import Stocks from './components/Stocks'
 import Products from './components/Products'
 import Suppliers from './components/Suppliers'
 import Customers from './components/Customers'
+import AdminLogin from './pages/AdminLogin'
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/sign-in-admin" element={<AdminLogin />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
