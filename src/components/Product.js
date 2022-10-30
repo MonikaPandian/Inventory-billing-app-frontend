@@ -8,6 +8,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Product = () => {
+  const [userDetails, setUserDetails] = useState({});
+  const {isAdmin} = userDetails;
+
+  useEffect(() => {
+      const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+          setUserDetails(userDetails);      
+  }, [userDetails.id]);
+
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [productId, setProductId] = useState("")
@@ -84,9 +92,10 @@ const Product = () => {
 
   return (
     <div className="container-fluid ps-3 pe-3">
+      {isAdmin && 
        <div className='container-fluid d-flex justify-content-end'>
         <button onClick={() => setAddModal(true)} className='btn bg-gradient-primary'><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Product</button>
-      </div>
+      </div>}
      {products ? 
       <div>
       <div className="row g-4">
@@ -97,12 +106,15 @@ const Product = () => {
                 <img src={product.image} className="card-img-top product-image" alt="..." />
                 <div className="card-body text-center p-2">
                   <h6 className="card-title">{product.name}</h6>
+                  {isAdmin && 
+                  <div>
                   <IconButton onClick={() => { setUpdateModal(true); getProduct(product._id) }} color="secondary">
                     <EditIcon />
                   </IconButton>&nbsp;&nbsp;&nbsp;&nbsp;
                   <IconButton onClick={() => removeProduct(product._id)} color="error">
                     <DeleteIcon />
                   </IconButton>
+                  </div>}
                 </div>
               </div>
             </div>

@@ -20,8 +20,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/sign-in-admin" element={<AdminLogin />} />
         <Route path="/sign-in" element={<Login />} />
+        <Route path="/sign-in-admin" element={<AdminLogin />} />       
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:id/:token" element={<ResetPassword />} />

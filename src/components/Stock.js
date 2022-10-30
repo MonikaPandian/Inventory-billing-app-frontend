@@ -9,15 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Stock = () => {
   const [userDetails, setUserDetails] = useState({});
-  const {username , isAdmin} = userDetails;
-  console.log(isAdmin)
+  const {isAdmin} = userDetails;
+
 
   useEffect(() => {
-      const userDetails = JSON.parse(localStorage.getItem('userDetails'));
-      if (userDetails) {           
-          setUserDetails(userDetails);
-      }
-  }, []);
+      const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+          setUserDetails(userDetails);      
+  }, [userDetails.id]);
 
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
@@ -103,9 +101,10 @@ const Stock = () => {
 
   return (
     <div className="container-fluid ps-3 pe-3">
+      {isAdmin === true &&
       <div className='container-fluid d-flex justify-content-end'>
         <button onClick={() => setAddModal(true)} className='btn bg-gradient-primary'><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Stock</button>
-      </div>
+      </div>}
       {stocks ? 
       <div>
         <div className="row g-4">
@@ -125,12 +124,15 @@ const Stock = () => {
                       <div>Availability : {stock.availability} kg</div>
                       <div>Requirement : {stock.requirement} kg</div>
                     </div>
+                    {isAdmin === true &&
+                    <div>
                     <IconButton onClick={() => { setUpdateModal(true); getStock(stock._id) }} color="secondary">
                       <EditIcon />
                     </IconButton>&nbsp;&nbsp;&nbsp;&nbsp;
                     <IconButton onClick={() => { removeStock(stock._id) }} color="error">
                       <DeleteIcon />
                     </IconButton>
+                    </div>}
                   </div>
                 </div>
               </div>

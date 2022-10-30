@@ -5,6 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit'
 
 const Customer = () => {
+    const [userDetails, setUserDetails] = useState({});
+    const { isAdmin} = userDetails;
+  
+    useEffect(() => {
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+            setUserDetails(userDetails);      
+    }, [userDetails.id]);
+
     const [updateModal, setUpdateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [customerId, setCustomerId] = useState("")
@@ -87,7 +95,8 @@ const Customer = () => {
                         <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div className="bg-gradient-primary shadow-primary border-radius-lg p-2 d-flex justify-content-between">
                                 <h6 className="text-white text-capitalize ps-3 pt-2">Customers table</h6>
-                                <button onClick={() => setAddModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>
+                                {isAdmin && 
+                                <button onClick={() => setAddModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>}
                             </div>
                         </div>
                         <div className="card-body px-0 pb-2">
@@ -99,7 +108,8 @@ const Customer = () => {
                                             <th className="text-uppercase text-secondary text-md font-weight-bolder ps-2">Contact</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Email</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Last Order</th>
-                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Edit</th>
+                                            {isAdmin && 
+                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Edit</th>}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -125,11 +135,12 @@ const Customer = () => {
                                                     <td className="align-middle text-center">
                                                         <span className="text-sm font-weight-bold">{cust.lastOrder}</span>
                                                     </td>
+                                                    {isAdmin && 
                                                     <td className="align-middle text-center">
                                                         <IconButton onClick={() => { setUpdateModal(true); getCustomer(cust._id) }} color="primary">
                                                             <EditIcon />
                                                         </IconButton>
-                                                    </td>
+                                                    </td>}
                                                 </tr>
                                             )
                                         })}

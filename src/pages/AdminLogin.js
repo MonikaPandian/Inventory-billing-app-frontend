@@ -21,8 +21,7 @@ const AdminLogin = () => {
             }
         })
             .then((data) => data.json())
-            .then((data) => {
-                console.log(data)
+            .then((data) => {              
                 if (data.message === "Successful login") {
                     localStorage.setItem("userDetails", JSON.stringify(data))
                     navigate("/home")

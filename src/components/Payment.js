@@ -7,6 +7,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Payment = () => {
+    const [userDetails, setUserDetails] = useState({});
+    const { isAdmin} = userDetails;
+  
+    useEffect(() => {
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+            setUserDetails(userDetails);      
+    }, [userDetails.id]);
+
     const [updateModal, setUpdateModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
     const [paymentCards, setPaymentCards] = useState([])
@@ -226,9 +234,10 @@ const Payment = () => {
                                         <div className="col-6 d-flex align-items-center">
                                             <h6 className="mb-0">Payment Method</h6>
                                         </div>
+                                        { isAdmin && 
                                         <div className="col-6 text-end">
                                             <span onClick={() => { setAddModal(true) }} className="btn bg-gradient-dark mb-0"><i className="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Card</span>
-                                        </div>
+                                        </div>}
                                     </div>
                                 </div>
                                 <div className="card-body p-3">
@@ -239,7 +248,8 @@ const Payment = () => {
                                                     <div className="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                                                         <img className="w-10 me-3 mb-0" src={card.image} alt="logo" />
                                                         <h6 className="mb-0">{card.number}</h6>
-                                                        <i onClick={() => { setUpdateModal(true); getCard(card._id) }} className="material-icons ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card">edit</i>
+                                                        { isAdmin && 
+                                                        <i onClick={() => { setUpdateModal(true); getCard(card._id) }} className="material-icons ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card">edit</i>}
                                                     </div>
                                                 </div>
                                             )
@@ -337,10 +347,11 @@ const Payment = () => {
                                                 <span className="text-sm mb-2">VAT Number: <span className="text-dark ms-sm-2 font-weight-bold">{bill.vatNumber}</span></span>
                                                 <span className="text-sm">Bill Amount: <span className="text-dark ms-sm-2 font-weight-bold">₹ {bill.amount}</span></span>
                                             </div>
+                                            {isAdmin && 
                                             <div className="ms-auto text-end">
-                                                <span onClick={()=>{removeBill(bill._id)}} className="btn btn-link text-danger text-gradient px-3 mb-0"><i className="material-icons text-sm me-2">delete</i>Delete</span>
-                                                <span onClick={()=>{setBillUpdateModal(true);getBill(bill._id)}} className="btn btn-link text-dark px-3 mb-0"><i className="material-icons text-sm me-2">edit</i>Edit</span>
-                                            </div>
+                                                <button onClick={()=>{removeBill(bill._id)}} className="btn btn-link text-danger text-gradient px-3 mb-0"><i className="material-icons text-sm me-2">delete</i>Delete</button>
+                                                <button onClick={()=>{setBillUpdateModal(true);getBill(bill._id)}} className="btn btn-link text-dark px-3 mb-0"><i className="material-icons text-sm me-2">edit</i>Edit</button>
+                                            </div>}
                                         </li>
                                     )
                                 })}                               
