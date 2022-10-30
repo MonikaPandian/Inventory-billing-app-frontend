@@ -13,7 +13,7 @@ const AdminLogin = () => {
             username: email,
             password: password
         };
-        fetch("http://localhost:9002/admin/login", {
+        fetch("https://inventory-billing-121.herokuapp.com/admin/login", {
             method: "POST",
             body: JSON.stringify(admin),
             headers: {
