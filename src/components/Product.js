@@ -7,7 +7,7 @@ import Footer from './Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Product = () => {
+const Product = () => { 
   const [userDetails, setUserDetails] = useState({});
   const {isAdmin} = userDetails;
 
@@ -16,7 +16,6 @@ const Product = () => {
           setUserDetails(userDetails);      
   }, [userDetails.id]);
 
-  // console.log(userDetails)
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
   const [productId, setProductId] = useState("")

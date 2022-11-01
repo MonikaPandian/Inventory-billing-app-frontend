@@ -87,15 +87,7 @@ const Sidebar = () => {
                                 </div>
                                 <span className="nav-link-text ms-1">Orders</span>
                             </span>
-                        </li>
-                        <li className="nav-item">
-                            <span onClick={()=>navigate("/add-order")} className="nav-link text-white cursor-pointer">
-                                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i className="material-icons">add</i>&nbsp;&nbsp;
-                                </div>
-                                <span className="nav-link-text ms-1">Add Order</span>
-                            </span>
-                        </li>   
+                        </li>                      
                         <li className="nav-item">
                             <span onClick={()=>navigate("/notifications")} className="nav-link text-white cursor-pointer">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">

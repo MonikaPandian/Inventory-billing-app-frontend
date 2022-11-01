@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
-
+const Login = () => {   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         const user = {
@@ -32,7 +31,7 @@ const Login = () => {
                 else {
                     window.alert("something went wrong")
                 }
-            })
+            })        
     }
 
     return (
@@ -50,7 +49,7 @@ const Login = () => {
             <div className="auth-wrapper">
                 <div className="auth-inner">
                     <form onSubmit={handleSubmit}>
-                        <h3>Sign In</h3>
+                        <h3>Sign In</h3>                      
                         <div className="mb-3">
                             <label>Email address</label>
                             <input value={email} onChange={(e) => setEmail(e.target.value)}

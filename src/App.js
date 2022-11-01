@@ -14,33 +14,36 @@ import Products from './components/Products'
 import Suppliers from './components/Suppliers'
 import Customers from './components/Customers'
 import AdminLogin from './pages/AdminLogin'
+import Invoices from './components/Invoices'
+import Orders from './components/Orders'
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route path="/sign-in" element={<Login />} />
-        <Route path="/sign-in-admin" element={<AdminLogin />} />       
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
-        <Route path="/home" element={<Home />} />  
-        <Route path="/stocks" element={<Stocks />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/suppliers" element={<Suppliers />} />
-        <Route path="/payments" element={<Payments />} /> 
-        <Route path="/profile" element={<Profile />} />
-        {/* <Route path="/invoices" element={<Invoices />} />    
-        <Route path="/create-invoice" element={<CreateInvoice />} />
-        <Route path="/orders" element={<Orders />} /> 
-        <Route path="/add-order" element={<AddOrder />} /> 
+  return (     
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/sign-in" element={<Login />} />
+          <Route path="/sign-in-admin" element={<AdminLogin />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/stocks" element={<Stocks />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/suppliers" element={<Suppliers />} />
+          <Route path="/payments" element={<Payments />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/invoices" element={<Invoices />} />  
+          <Route path="/orders" element={<Orders />} /> 
+          {/*   
+        <Route path="/create-invoice" element={<CreateInvoice />} />             
         <Route path="/notifications" element={<Notifications />} />          
           */}
-                   
-      </Routes>
-    </div>
+
+        </Routes>
+      </div>
+  
   )
 }
 export default App

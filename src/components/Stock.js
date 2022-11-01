@@ -11,7 +11,6 @@ const Stock = () => {
   const [userDetails, setUserDetails] = useState({});
   const {isAdmin} = userDetails;
 
-
   useEffect(() => {
       const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
           setUserDetails(userDetails);      
@@ -101,7 +100,7 @@ const Stock = () => {
 
   return (
     <div className="container-fluid ps-3 pe-3">
-      {isAdmin === true &&
+      {isAdmin === true  &&
       <div className='container-fluid d-flex justify-content-end'>
         <button onClick={() => setAddModal(true)} className='btn bg-gradient-primary'><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Stock</button>
       </div>}
