@@ -4,7 +4,7 @@ const Invoice = () => {
   const [invoices, setInvoices] = useState([])
 
   const getInvoices = () => {
-    fetch("http://localhost:9002/invoices", {
+    fetch("https://inventory-billing-121.herokuapp.com/invoices", {
       method: "GET"
     })
       .then((data) => data.json())
