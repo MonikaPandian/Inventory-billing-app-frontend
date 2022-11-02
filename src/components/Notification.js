@@ -4,7 +4,7 @@ const Notification = () => {
     const [notifications, setNotifications] = useState([])
 
     const getNotifications = () => {
-        fetch("http://localhost:9002/notifications", {
+        fetch("https://inventory-billing-121.herokuapp.com/notifications", {
             method: "GET"
         })
             .then((data) => data.json())
