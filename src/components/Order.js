@@ -20,6 +20,14 @@ const Order = () => {
     const [newStatus, setNewStatus] = useState("")
     const [newDeliveryDate, setNewDeliveryDate] = useState("")
 
+    const [userDetails, setUserDetails] = useState({});
+    const {isAdmin} = userDetails;
+  
+    useEffect(() => {
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+            setUserDetails(userDetails);      
+    }, [userDetails.id]);
+
     const updateOrder=(e)=> {
         e.preventDefault()
         setUpdateModal(false)
@@ -30,7 +38,7 @@ const Order = () => {
             status: status,
             deliveryDate: deliveryDate
         }
-        fetch(`http://localhost:9002/orders/${orderId}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/orders/${orderId}`, {
             method: "PUT",
             body: JSON.stringify(updatedOrder),
             headers: {
@@ -49,7 +57,7 @@ const Order = () => {
             status: newStatus,
             deliveryDate: newDeliveryDate
         }
-        fetch("http://localhost:9002/orders", {
+        fetch("https://inventory-billing-121.herokuapp.com/orders", {
             method: "POST",
             body: JSON.stringify(newOrder),
             headers: {
@@ -59,7 +67,7 @@ const Order = () => {
     }
 
     const getOrder=(id)=> {
-        fetch(`http://localhost:9002/orders/${id}`, {
+        fetch(`https://inventory-billing-121.herokuapp.com/orders/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -68,7 +76,7 @@ const Order = () => {
     }
 
     const getOrders=()=> {
-        fetch("http://localhost:9002/orders", {
+        fetch("https://inventory-billing-121.herokuapp.com/orders", {
             method: "GET"
         })
             .then((data) => data.json())
@@ -99,7 +107,8 @@ const Order = () => {
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Orders</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Delivery Date</th>                                            
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Delivery status</th>                                            
-                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Actions</th>
+                                            { isAdmin &&
+                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Actions</th>}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,12 +129,13 @@ const Order = () => {
                                                     </td>
                                                     <td className="align-middle text-center">
                                                         <span className="text-sm font-weight-bold">{order.status}</span>
-                                                    </td>                                                    
+                                                    </td>
+                                                    { isAdmin &&                                                    
                                                     <td className="align-middle text-center">
                                                         <IconButton onClick={() =>{setUpdateModal(true);getOrder(order._id)}} color="primary">
                                                             <EditIcon />
                                                         </IconButton>
-                                                    </td>
+                                                    </td>}
                                                 </tr>
                                             )
                                         })}

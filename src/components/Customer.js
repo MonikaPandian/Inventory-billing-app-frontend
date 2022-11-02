@@ -6,11 +6,11 @@ import EditIcon from '@mui/icons-material/Edit'
 
 const Customer = () => {
     const [userDetails, setUserDetails] = useState({});
-    const { isAdmin} = userDetails;
-  
+    const { isAdmin } = userDetails;
+
     useEffect(() => {
-        const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
-            setUserDetails(userDetails);      
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+        setUserDetails(userDetails);
     }, [userDetails.id]);
 
     const [updateModal, setUpdateModal] = useState(false);
@@ -95,8 +95,8 @@ const Customer = () => {
                         <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div className="bg-gradient-primary shadow-primary border-radius-lg p-2 d-flex justify-content-between">
                                 <h6 className="text-white text-capitalize ps-3 pt-2">Customers table</h6>
-                                {isAdmin && 
-                                <button onClick={() => setAddModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>}
+                                {isAdmin &&
+                                    <button onClick={() => setAddModal(true)} className="text-white text-md me-5 p-2 text-capitalize font-weight-bold btn-outline-white bg-gradient-primary"><i className="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Customer</button>}
                             </div>
                         </div>
                         <div className="card-body px-0 pb-2">
@@ -104,43 +104,37 @@ const Customer = () => {
                                 <table className="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th className="text-uppercase text-secondary text-md font-weight-bold">Customer Name</th>
-                                            <th className="text-uppercase text-secondary text-md font-weight-bolder ps-2">Contact</th>
+                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Customer Name</th>
+                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Contact</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Email</th>
                                             <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Last Order</th>
-                                            {isAdmin && 
-                                            <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Edit</th>}
+                                            {isAdmin &&
+                                                <th className="text-center text-uppercase text-secondary text-md font-weight-bolder">Edit</th>}
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {customers.map((cust) => {
                                             return (
                                                 <tr key={cust._id}>
-                                                    <td>
-                                                        <div className="d-flex px-2 py-1">
-                                                            <div>
-                                                                <img src={cust.img} className="avatar avatar-sm me-3 border-radius-lg" alt="user1" />
-                                                            </div>
-                                                            <div className="d-flex flex-column justify-content-center">
-                                                                <h6 className="font-weight-bold text-sm">{cust.name}</h6>
-                                                            </div>
-                                                        </div>
+                                                    <td className="align-middle text-center text-md d-flex">
+                                                        <img src={cust.img} className="avatar avatar-sm ms-5 me-3 border-radius-lg" alt="user1" />
+                                                        <h6 className="font-weight-bold text-sm">{cust.name}</h6>
                                                     </td>
-                                                    <td>
+                                                    <td className="align-middle text-center text-md">
                                                         <p className="text-sm font-weight-bold">{cust.contact}</p>
                                                     </td>
-                                                    <td className="align-middle text-center text-sm">
+                                                    <td className="align-middle text-center text-md">
                                                         <p className="text-sm font-weight-bold">{cust.email}</p>
                                                     </td>
-                                                    <td className="align-middle text-center">
+                                                    <td className="align-middle text-center text-md">
                                                         <span className="text-sm font-weight-bold">{cust.lastOrder}</span>
                                                     </td>
-                                                    {isAdmin && 
-                                                    <td className="align-middle text-center">
-                                                        <IconButton onClick={() => { setUpdateModal(true); getCustomer(cust._id) }} color="primary">
-                                                            <EditIcon />
-                                                        </IconButton>
-                                                    </td>}
+                                                    {isAdmin &&
+                                                        <td className="align-middle text-center">
+                                                            <IconButton onClick={() => { setUpdateModal(true); getCustomer(cust._id) }} color="primary">
+                                                                <EditIcon />
+                                                            </IconButton>
+                                                        </td>}
                                                 </tr>
                                             )
                                         })}

@@ -1,4 +1,7 @@
 import React from 'react'
+import AddInvoice from './AddInvoice'
+import Navbar from './Navbar'
+import Sidebar from './Sidebar'
 
 const AddInvoices = () => {
     return (
@@ -6,7 +9,7 @@ const AddInvoices = () => {
             <Sidebar />
             <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
                 <Navbar name="Create Invoice" />
-                <Customer />
+                <AddInvoice/>
             </main>
         </div>
     )

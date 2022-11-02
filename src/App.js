@@ -16,6 +16,7 @@ import Customers from './components/Customers'
 import AdminLogin from './pages/AdminLogin'
 import Invoices from './components/Invoices'
 import Orders from './components/Orders'
+import AddInvoices from './components/AddInvoices'
 
 function App() {
   return (     
@@ -36,8 +37,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/invoices" element={<Invoices />} />  
           <Route path="/orders" element={<Orders />} /> 
+          <Route path="/create-invoice" element={<AddInvoices />} />             
+
           {/*   
-        <Route path="/create-invoice" element={<CreateInvoice />} />             
         <Route path="/notifications" element={<Notifications />} />          
           */}
 

@@ -1,9 +1,16 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
 
     const navigate = useNavigate();
+    const [userDetails, setUserDetails] = useState({});
+    const { isAdmin } = userDetails;
+
+    useEffect(() => {
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));          
+            setUserDetails(userDetails);      
+    }, [userDetails.id]);
  
     return (           
             <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
@@ -72,6 +79,7 @@ const Sidebar = () => {
                                 <span className="nav-link-text ms-1">Invoices</span>
                             </span>
                         </li>
+                        {isAdmin && 
                         <li className="nav-item">
                             <span onClick={()=>navigate("/create-invoice")} className="nav-link text-white cursor-pointer">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -79,7 +87,7 @@ const Sidebar = () => {
                                 </div>
                                 <span className="nav-link-text ms-1">Create Invoice</span>
                             </span>
-                        </li>                     
+                        </li> }                    
                         <li className="nav-item">
                             <span onClick={()=>navigate("/orders")}  className="nav-link text-white cursor-pointer">
                                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">

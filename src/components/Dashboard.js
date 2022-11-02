@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState, useEffect} from 'react'
 import Footer from './Footer'
 import { Bar, Line } from 'react-chartjs-2';
 import {
@@ -256,6 +256,19 @@ export const data3 = {
 }
 
 const Dashboard = () => {
+  const [orders, setOrders] = useState("")
+
+  const getOrders=()=> {
+    fetch("https://inventory-billing-121.herokuapp.com/orders/count", {
+        method: "GET"
+    })
+        .then((data) => data.json())
+        .then((res) => setOrders(res))
+        .catch((e) => console.log(e));
+}
+
+useEffect(() => getOrders(), [orders]);
+
   return (
     <div className="container-fluid py-4">
       <div className="row">
@@ -284,7 +297,7 @@ const Dashboard = () => {
               </div>
               <div className="text-end pt-1">
                 <p className="text-sm mb-0 text-capitalize">Today's Orders</p>
-                <h4 className="mb-0">20</h4>
+                <h4 className="mb-0">{orders}</h4>
               </div>
             </div>
             <hr className="dark horizontal my-0" />
