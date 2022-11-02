@@ -17,6 +17,7 @@ import AdminLogin from './pages/AdminLogin'
 import Invoices from './components/Invoices'
 import Orders from './components/Orders'
 import AddInvoices from './components/AddInvoices'
+import Notifications from './components/Notifications'
 
 function App() {
   return (     
@@ -38,11 +39,7 @@ function App() {
           <Route path="/invoices" element={<Invoices />} />  
           <Route path="/orders" element={<Orders />} /> 
           <Route path="/create-invoice" element={<AddInvoices />} />             
-
-          {/*   
-        <Route path="/notifications" element={<Notifications />} />          
-          */}
-
+          <Route path="/notifications" element={<Notifications />} />       
         </Routes>
       </div>
   
