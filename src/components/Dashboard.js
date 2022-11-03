@@ -1,4 +1,4 @@
-import React,{ useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from './Footer'
 import { Bar, Line } from 'react-chartjs-2';
 import {
@@ -26,248 +26,19 @@ ChartJS.register(
   Legend
 );
 
-export const options1 = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      display: false,
-    }
-  },
-  interaction: {
-    intersect: false,
-    mode: 'index',
-  },
-  scales: {
-    y: {
-      grid: {
-        drawBorder: false,
-        display: true,
-        drawOnChartArea: true,
-        drawTicks: false,
-        borderDash: [5, 5],
-        color: 'rgba(255, 255, 255, .2)'
-      },
-      ticks: {        
-        beginAtZero: true,
-        min: 0,
-        max: 80,
-        stepSize: 10,        
-        padding: 10,
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-        color: "#fff"
-      },
-    },
-    x: {
-      grid: {
-        drawBorder: false,
-        display: true,
-        drawOnChartArea: true,
-        drawTicks: false,
-        borderDash: [5, 5],
-        color: 'rgba(255, 255, 255, .2)'
-      },
-      ticks: {
-        display: true,
-        color: '#f8f9fa',
-        padding: 10,
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-      }
-    },
-  },
-}
-
-export const data1 = {
-  labels: ["M", "T", "W", "T", "F", "S", "S"],
-  datasets: [{
-    label: "Sales",
-    tension: 0.4,
-    borderWidth: 0,
-    borderRadius: 4,
-    borderSkipped: false,
-    backgroundColor: "rgba(255, 255, 255, .8)",
-    data: [50, 20, 10, 22, 50, 10, 40],
-    maxBarThickness: 6
-  },],
-};
-
-export const options2 = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      display: false,
-    }
-  },
-  interaction: {
-    intersect: false,
-    mode: 'index',
-  },
-  scales: {
-    y: {
-      grid: {
-        drawBorder: false,
-        display: true,
-        drawOnChartArea: true,
-        drawTicks: false,
-        borderDash: [5, 5],
-        color: 'rgba(255, 255, 255, .2)'
-      },
-      ticks: {
-        display: true,
-        color: '#f8f9fa',
-        padding: 10,
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-      }
-    },
-    x: {
-      grid: {
-        drawBorder: false,
-        display: false,
-        drawOnChartArea: false,
-        drawTicks: false,
-        borderDash: [5, 5]
-      },
-      ticks: {
-        display: true,
-        color: '#f8f9fa',
-        padding: 10,
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-      }
-    },
-  }
-};
-
-export const data2 = {
-  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  datasets: [{
-    label: "sales",
-    tension: 0,   
-    pointRadius: 5,
-    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-    pointBorderColor: "transparent",
-    borderColor: "rgba(255, 255, 255, .8)",
-    borderWidth: 4,
-    backgroundColor: "transparent",
-    fill: true,
-    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-    maxBarThickness: 6
-  }],
-};
-
-export const options3 = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      display: false,
-    }
-  },
-  interaction: {
-    intersect: false,
-    mode: 'index',
-  },
-  scales: {
-    y: {
-      grid: {
-        drawBorder: false,
-        display: true,
-        drawOnChartArea: true,
-        drawTicks: false,
-        borderDash: [5, 5],
-        color: 'rgba(255, 255, 255, .2)'
-      },
-      ticks: {
-        display: true,
-        padding: 10,
-        color: '#f8f9fa',
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-      }
-    },
-    x: {
-      grid: {
-        drawBorder: false,
-        display: false,
-        drawOnChartArea: false,
-        drawTicks: false,
-        borderDash: [5, 5]
-      },
-      ticks: {
-        display: true,
-        color: '#f8f9fa',
-        padding: 10,
-        font: {
-          size: 14,
-          weight: 300,
-          family: "Roboto",
-          style: 'normal',
-          lineHeight: 2
-        },
-      }
-    },
-  },
-}
-
-export const data3 = {
-  labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  datasets: [{
-    label: "deliveries",
-    tension: 0,   
-    pointRadius: 5,
-    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-    pointBorderColor: "transparent",
-    borderColor: "rgba(255, 255, 255, .8)",
-    borderWidth: 4,
-    backgroundColor: "transparent",
-    fill: true,
-    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-    maxBarThickness: 6
-  }],
-}
-
 const Dashboard = () => {
   const [orders, setOrders] = useState("")
 
-  const getOrders=()=> {
+  const getOrders = () => {
     fetch("https://inventory-billing-121.herokuapp.com/orders/count", {
-        method: "GET"
+      method: "GET"
     })
-        .then((data) => data.json())
-        .then((res) => setOrders(res))
-        .catch((e) => console.log(e));
-}
+      .then((data) => data.json())
+      .then((res) => setOrders(res))
+      .catch((e) => console.log(e));
+  }
 
-useEffect(() => getOrders(), [orders]);
+  useEffect(() => getOrders(), [orders]);
 
   return (
     <div className="container-fluid py-4">
@@ -347,7 +118,80 @@ useEffect(() => getOrders(), [orders]);
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <Bar options={options1} data={data1} />
+                  <Bar options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: false,
+                      }
+                    },
+                    interaction: {
+                      intersect: false,
+                      mode: 'index',
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          drawBorder: false,
+                          display: true,
+                          drawOnChartArea: true,
+                          drawTicks: false,
+                          borderDash: [5, 5],
+                          color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                          beginAtZero: true,
+                          min: 0,
+                          max: 80,
+                          stepSize: 10,
+                          padding: 10,
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                          color: "#fff"
+                        },
+                      },
+                      x: {
+                        grid: {
+                          drawBorder: false,
+                          display: true,
+                          drawOnChartArea: true,
+                          drawTicks: false,
+                          borderDash: [5, 5],
+                          color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                          display: true,
+                          color: '#f8f9fa',
+                          padding: 10,
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                        }
+                      },
+                    },
+                  }} data={{
+                    labels: ["M", "T", "W", "T", "F", "S", "S"],
+                    datasets: [{
+                      label: "Sales",
+                      tension: 0.4,
+                      borderWidth: 0,
+                      borderRadius: 4,
+                      borderSkipped: false,
+                      backgroundColor: "rgba(255, 255, 255, .8)",
+                      data: [50, 20, 10, 22, 50, 10, 40],
+                      maxBarThickness: 6
+                    },],
+                  }} />
                 </div>
               </div>
             </div>
@@ -367,7 +211,79 @@ useEffect(() => getOrders(), [orders]);
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <Line options={options2} data={data2} />
+                  <Line options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: false,
+                      }
+                    },
+                    interaction: {
+                      intersect: false,
+                      mode: 'index',
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          drawBorder: false,
+                          display: true,
+                          drawOnChartArea: true,
+                          drawTicks: false,
+                          borderDash: [5, 5],
+                          color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                          display: true,
+                          color: '#f8f9fa',
+                          padding: 10,
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                        }
+                      },
+                      x: {
+                        grid: {
+                          drawBorder: false,
+                          display: false,
+                          drawOnChartArea: false,
+                          drawTicks: false,
+                          borderDash: [5, 5]
+                        },
+                        ticks: {
+                          display: true,
+                          color: '#f8f9fa',
+                          padding: 10,
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                        }
+                      },
+                    }
+                  }} data={{
+                    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                      label: "sales",
+                      tension: 0,
+                      pointRadius: 5,
+                      pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                      pointBorderColor: "transparent",
+                      borderColor: "rgba(255, 255, 255, .8)",
+                      borderWidth: 4,
+                      backgroundColor: "transparent",
+                      fill: true,
+                      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                      maxBarThickness: 6
+                    }],
+                  }} />
                 </div>
               </div>
             </div>
@@ -387,7 +303,79 @@ useEffect(() => getOrders(), [orders]);
             <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
               <div className="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
                 <div className="chart">
-                  <Line options={options3} data={data3} />
+                  <Line options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: false,
+                      }
+                    },
+                    interaction: {
+                      intersect: false,
+                      mode: 'index',
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          drawBorder: false,
+                          display: true,
+                          drawOnChartArea: true,
+                          drawTicks: false,
+                          borderDash: [5, 5],
+                          color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                          display: true,
+                          padding: 10,
+                          color: '#f8f9fa',
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                        }
+                      },
+                      x: {
+                        grid: {
+                          drawBorder: false,
+                          display: false,
+                          drawOnChartArea: false,
+                          drawTicks: false,
+                          borderDash: [5, 5]
+                        },
+                        ticks: {
+                          display: true,
+                          color: '#f8f9fa',
+                          padding: 10,
+                          font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                          },
+                        }
+                      },
+                    },
+                  }} data={{
+                    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    datasets: [{
+                      label: "deliveries",
+                      tension: 0,
+                      pointRadius: 5,
+                      pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                      pointBorderColor: "transparent",
+                      borderColor: "rgba(255, 255, 255, .8)",
+                      borderWidth: 4,
+                      backgroundColor: "transparent",
+                      fill: true,
+                      data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                      maxBarThickness: 6
+                    }],
+                  }} />
                 </div>
               </div>
             </div>
