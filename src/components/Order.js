@@ -38,7 +38,7 @@ const Order = () => {
             status: status,
             deliveryDate: deliveryDate
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/orders/${orderId}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/orders/${orderId}`, {
             method: "PUT",
             body: JSON.stringify(updatedOrder),
             headers: {
@@ -57,7 +57,7 @@ const Order = () => {
             status: newStatus,
             deliveryDate: newDeliveryDate
         }
-        fetch("https://inventory-billing-121.herokuapp.com/orders", {
+        fetch("https://inventory-billing-app-backend.vercel.app/orders", {
             method: "POST",
             body: JSON.stringify(newOrder),
             headers: {
@@ -67,7 +67,7 @@ const Order = () => {
     }
 
     const getOrder=(id)=> {
-        fetch(`https://inventory-billing-121.herokuapp.com/orders/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/orders/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -76,7 +76,7 @@ const Order = () => {
     }
 
     const getOrders=()=> {
-        fetch("https://inventory-billing-121.herokuapp.com/orders", {
+        fetch("https://inventory-billing-app-backend.vercel.app/orders", {
             method: "GET"
         })
             .then((data) => data.json())
