@@ -45,7 +45,7 @@ const Payment = () => {
             number: cardNumber,
             image: cardImage
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/cards/${cardId}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/cards/${cardId}`, {
             method: "PUT",
             body: JSON.stringify(updatedCard),
             headers: {
@@ -61,7 +61,7 @@ const Payment = () => {
             number: newCardNumber,
             image: newCardImage,
         }
-        fetch("https://inventory-billing-121.herokuapp.com/cards", {
+        fetch("https://inventory-billing-app-backend.vercel.app/cards", {
             method: "POST",
             body: JSON.stringify(newCard),
             headers: {
@@ -71,7 +71,7 @@ const Payment = () => {
     }
 
     const getCard = (id) => {
-        fetch(`https://inventory-billing-121.herokuapp.com/cards/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/cards/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -80,7 +80,7 @@ const Payment = () => {
     }
 
     const getCards = () => {
-        fetch("https://inventory-billing-121.herokuapp.com/cards", {
+        fetch("https://inventory-billing-app-backend.vercel.app/cards", {
             method: "GET"
         })
             .then((data) => data.json())
@@ -91,7 +91,7 @@ const Payment = () => {
     useEffect(() => getCards(), [paymentCards]);
 
     const getBills = () => {
-        fetch("https://inventory-billing-121.herokuapp.com/bills", {
+        fetch("https://inventory-billing-app-backend.vercel.app/bills", {
             method: "GET"
         })
             .then((data) => data.json())
@@ -111,7 +111,7 @@ const Payment = () => {
             amount: newAmount,
             vatNumber: newVatNumber
         }
-        fetch("https://inventory-billing-121.herokuapp.com/bills", {
+        fetch("https://inventory-billing-app-backend.vercel.app/bills", {
             method: "POST",
             body: JSON.stringify(newBill),
             headers: {
@@ -121,7 +121,7 @@ const Payment = () => {
     }
 
     const getBill = (id) => {
-        fetch(`https://inventory-billing-121.herokuapp.com/bills/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/bills/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -130,7 +130,7 @@ const Payment = () => {
     }
     
     const removeBill = (id) => {
-        fetch(`https://inventory-billing-121.herokuapp.com/bills/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/bills/${id}`, {
           method: "DELETE"
         })
           .then((data) => data.json())
@@ -152,7 +152,7 @@ const Payment = () => {
            amount: amount,
            vatNumber: vatNumber
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/bills/${billId}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/bills/${billId}`, {
             method: "PUT",
             body: JSON.stringify(updatedBill),
             headers: {
