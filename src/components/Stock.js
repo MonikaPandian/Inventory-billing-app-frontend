@@ -38,7 +38,7 @@ const Stock = () => {
       availability: availability,
       requirement: requirement
     }
-    fetch(`https://inventory-billing-121.herokuapp.com/stocks/${stockId}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/stocks/${stockId}`, {
       method: "PUT",
       body: JSON.stringify(updatedStock),
       headers: {
@@ -48,7 +48,7 @@ const Stock = () => {
   }
 
   const removeStock = (id) => {
-    fetch(`https://inventory-billing-121.herokuapp.com/stocks/${id}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/stocks/${id}`, {
       method: "DELETE"
     })
       .then((data) => data.json())
@@ -69,7 +69,7 @@ const Stock = () => {
       availability: newStockAvailability,
       requirement: newStockRequirement
     }
-    fetch("https://inventory-billing-121.herokuapp.com/stocks", {
+    fetch("https://inventory-billing-app-backend.vercel.app/stocks", {
       method: "POST",
       body: JSON.stringify(newStock),
       headers: {
@@ -79,7 +79,7 @@ const Stock = () => {
   }
 
   const getStock = (id) => {
-    fetch(`https://inventory-billing-121.herokuapp.com/stocks/${id}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/stocks/${id}`, {
       method: "GET"
     })
       .then((data) => data.json())
@@ -88,7 +88,7 @@ const Stock = () => {
   }
 
   const getStocks = () => {
-    fetch("https://inventory-billing-121.herokuapp.com/stocks", {
+    fetch("https://inventory-billing-app-backend.vercel.app/stocks", {
       method: "GET"
     })
       .then((data) => data.json())
