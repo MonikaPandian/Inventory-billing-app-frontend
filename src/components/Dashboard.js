@@ -30,7 +30,7 @@ const Dashboard = () => {
   const [orders, setOrders] = useState("")
 
   const getOrders = () => {
-    fetch("https://inventory-billing-121.herokuapp.com/orders/count", {
+    fetch("https://inventory-billing-app-backend.vercel.app/orders/count", {
       method: "GET"
     })
       .then((data) => data.json())
