@@ -28,7 +28,7 @@ const ProfileDetails = () => {
             pincode: pincode,
             description: description
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/admin/profile/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/admin/profile/${id}`, {
             method: "PUT",
             body: JSON.stringify(updateProfile),
             headers: {
@@ -41,7 +41,7 @@ const ProfileDetails = () => {
         const username = {
             username: "admin@example.com"
         }
-        fetch("https://inventory-billing-121.herokuapp.com/admin/profile", {
+        fetch("https://inventory-billing-app-backend.vercel.app/admin/profile", {
             method: "POST",
             body: JSON.stringify(username),
             headers: {
