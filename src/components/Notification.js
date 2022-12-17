@@ -8,7 +8,7 @@ const Notification = () => {
     const [newCustomerName, setNewCustomerName] = useState("")
 
     const getNotifications = () => {
-        fetch("https://inventory-billing-121.herokuapp.com/notifications", {
+        fetch("https://inventory-billing-app-backend.vercel.app/notifications", {
             method: "GET"
         })
             .then((data) => data.json())
