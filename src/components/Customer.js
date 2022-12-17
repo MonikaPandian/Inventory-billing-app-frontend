@@ -38,7 +38,7 @@ const Customer = () => {
             lastOrder: lastOrder,
             img: image
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/customers/${customerId}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/customers/${customerId}`, {
             method: "PUT",
             body: JSON.stringify(updatedCustomer),
             headers: {
@@ -57,7 +57,7 @@ const Customer = () => {
             lastOrder: newCustomerLastOrder,
             img: newCustomerImage
         }
-        fetch("https://inventory-billing-121.herokuapp.com/customers", {
+        fetch("https://inventory-billing-app-backend.vercel.app/customers", {
             method: "POST",
             body: JSON.stringify(newCustomer),
             headers: {
@@ -67,7 +67,7 @@ const Customer = () => {
     }
 
     const getCustomer = (id) => {
-        fetch(`https://inventory-billing-121.herokuapp.com/customers/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/customers/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -76,7 +76,7 @@ const Customer = () => {
     }
 
     const getCustomers = () => {
-        fetch("https://inventory-billing-121.herokuapp.com/customers", {
+        fetch("https://inventory-billing-app-backend.vercel.app/customers", {
             method: "GET"
         })
             .then((data) => data.json())
