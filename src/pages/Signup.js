@@ -19,7 +19,7 @@ const Signup = () => {
             username: email,
             password: password
         };
-        fetch("https://inventory-billing-121.herokuapp.com/users/sign-up", {
+        fetch("https://inventory-billing-app-backend.vercel.app/users/sign-up", {
             method: "POST",
             body: JSON.stringify(newUser),
             headers: {
