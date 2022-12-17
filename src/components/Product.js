@@ -32,7 +32,7 @@ const Product = () => {
       name: productName,
       image: ProductImage
     }
-    fetch(`https://inventory-billing-121.herokuapp.com/products/${productId}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/products/${productId}`, {
       method: "PUT",
       body: JSON.stringify(updatedProduct),
       headers: {
@@ -42,7 +42,7 @@ const Product = () => {
   }
 
   const removeProduct = (id) => {
-    fetch(`https://inventory-billing-121.herokuapp.com/products/${id}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/products/${id}`, {
       method: "DELETE"
     })
       .then((data) => data.json())
@@ -61,7 +61,7 @@ const Product = () => {
       name: newProductName,
       image: newProductImage
     }
-    fetch("https://inventory-billing-121.herokuapp.com/products", {
+    fetch("https://inventory-billing-app-backend.vercel.app/products", {
       method: "POST",
       body: JSON.stringify(newStock),
       headers: {
@@ -71,7 +71,7 @@ const Product = () => {
   }
 
   const getProduct = (id) => {
-    fetch(`https://inventory-billing-121.herokuapp.com/products/${id}`, {
+    fetch(`https://inventory-billing-app-backend.vercel.app/products/${id}`, {
       method: "GET"
     })
       .then((data) => data.json())
@@ -80,7 +80,7 @@ const Product = () => {
   }
 
   const getProducts = () => {
-    fetch("https://inventory-billing-121.herokuapp.com/products", {
+    fetch("https://inventory-billing-app-backend.vercel.app/products", {
       method: "GET"
     })
       .then((data) => data.json())
