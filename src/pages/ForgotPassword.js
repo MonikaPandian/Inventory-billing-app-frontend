@@ -11,7 +11,7 @@ const ForgotPassword = () => {
         const userEmail = {
             username: email,
         };
-        fetch("https://inventory-billing-121.herokuapp.com/users/forgot-password", {
+        fetch("https://inventory-billing-app-backend.vercel.app/users/forgot-password", {
             method: "POST",
             body: JSON.stringify(userEmail),
             headers: {
