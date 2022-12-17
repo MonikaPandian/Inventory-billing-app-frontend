@@ -38,7 +38,7 @@ const Supplier = () => {
             lastOrder: lastOrder,
             img: image
         }
-        fetch(`https://inventory-billing-121.herokuapp.com/suppliers/${supplierId}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/suppliers/${supplierId}`, {
             method: "PUT",
             body: JSON.stringify(updatedSupplier),
             headers: {
@@ -57,7 +57,7 @@ const Supplier = () => {
             lastOrder: newSupplierLastOrder,
             img: newSupplierImage
         }
-        fetch("https://inventory-billing-121.herokuapp.com/suppliers", {
+        fetch("https://inventory-billing-app-backend.vercel.app/suppliers", {
             method: "POST",
             body: JSON.stringify(newSupplier),
             headers: {
@@ -67,7 +67,7 @@ const Supplier = () => {
     }
 
     const getSupplier=(id)=> {
-        fetch(`https://inventory-billing-121.herokuapp.com/suppliers/${id}`, {
+        fetch(`https://inventory-billing-app-backend.vercel.app/suppliers/${id}`, {
             method: "GET"
         })
             .then((data) => data.json())
@@ -76,7 +76,7 @@ const Supplier = () => {
     }
 
     const getSuppliers=()=> {
-        fetch("https://inventory-billing-121.herokuapp.com/suppliers", {
+        fetch("https://inventory-billing-app-backend.vercel.app/suppliers", {
             method: "GET"
         })
             .then((data) => data.json())
