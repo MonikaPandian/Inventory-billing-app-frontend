@@ -4,11 +4,11 @@ const Invoice = () => {
   const [invoices, setInvoices] = useState([])
 
   const getInvoices = () => {
-    fetch("https://inventory-billing-121.herokuapp.com/invoices", {
+    fetch("https://inventory-billing-app-backend.vercel.app/invoices", {
       method: "GET"
     })
       .then((data) => data.json())
-      .then((res) => { setInvoices(res) })
+      .then((res) => setInvoices(res))
       .catch((e) => console.log(e));
   }
 
