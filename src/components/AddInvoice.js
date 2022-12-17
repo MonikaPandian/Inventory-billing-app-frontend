@@ -45,7 +45,7 @@ const AddInvoice = () => {
     }
 
     const getStocks = () => {
-        fetch("https://inventory-billing-121.herokuapp.com/stocks", {
+        fetch("https://inventory-billing-app-backend.vercel.app/stocks", {
             method: "GET"
         })
             .then((data) => data.json())
