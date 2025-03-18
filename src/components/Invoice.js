@@ -21,7 +21,7 @@ const Invoice = () => {
         {invoices.map((invoice) => {
           return (
             <div key={invoice._id} className="col m-4">
-              <div className="card border-primary text-center" style={{ width: "18rem"}}>
+              <div className="card border-primary text-center" style={{ width: "18rem" }}>
                 <div class="card-header">{invoice.customerName}</div>
                 <div class="card-body">
                   <h5 class="card-title">Items purchased</h5>
@@ -30,7 +30,7 @@ const Invoice = () => {
                   <p class="card-text">{invoice.item3}</p>
                   <p class="card-text">Purchase date: &nbsp;{invoice.purchasedDate}</p>
                   <h5 class="card-title">Total Amount: &nbsp;{invoice.amount}</h5>
-                  <a target="_blank" href={invoice.link} className="btn btn-primary align-self-center">Download</a>
+                  <a target="_blank" rel="noreferrer" href={invoice.link} className="btn btn-primary align-self-center">Download</a>
                 </div>
               </div>
             </div>

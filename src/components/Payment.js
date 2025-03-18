@@ -32,11 +32,11 @@ const Payment = () => {
     const [vatNumber, setVatNumber] = useState("")
     const [amount, setAmount] = useState("")
     const [billId , setBillId] = useState("")
-    const [newCustomerName , setNewCustomerName] = useState("")
-    const [newEmail , setNewEmail] = useState("")
-    const [newMobile , setNewMobile] = useState("")
-    const [newVatNumber , setNewVatNumber] = useState("")
-    const [newAmount , setNewAmount] = useState("")
+    const [newCustomerName ,] = useState("")
+    const [newEmail ,] = useState("")
+    const [newMobile ,] = useState("")
+    const [newVatNumber , ] = useState("")
+    const [newAmount , ] = useState("")
 
     const updateCard = (e) => {
         e.preventDefault()

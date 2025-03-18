@@ -1,5 +1,5 @@
 import React from 'react'
-import Customer from './Customer'
+// import Customer from './Customer'
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 import Supplier from './Supplier'

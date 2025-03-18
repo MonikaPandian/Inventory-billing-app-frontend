@@ -1,13 +1,13 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Navbar = (props) => {
 
     const [userDetails, setUserDetails] = useState({});
-    const {username} = userDetails
- 
+    const { username } = userDetails
+
     useEffect(() => {
         const userDetails = JSON.parse(localStorage.getItem('userDetails'));
-        if (userDetails) {           
+        if (userDetails) {
             setUserDetails(userDetails);
         }
     }, []);
@@ -33,8 +33,8 @@ const Navbar = (props) => {
                         <li className="nav-item d-flex align-items-center p-3 cursor-pointer">
                             <div className="nav-link text-body font-weight-bold px-0">
                                 <i className="fa fa-user me-sm-1"></i>
-                                    {username ? 
-                                    <span className="d-sm-inline d-none">{username}</span>:
+                                {username ?
+                                    <span className="d-sm-inline d-none">{username}</span> :
                                     <span className="d-sm-inline d-none">Sign In</span>}
                             </div>
                         </li>
@@ -47,7 +47,7 @@ const Navbar = (props) => {
                                     <div className="dropdown-item border-radius-md">
                                         <div className="d-flex py-1">
                                             <div className="my-auto">
-                                                <img src="./assets/img/team-2.jpg" className="avatar avatar-sm  me-3 " />
+                                                <img src="./assets/img/team-2.jpg" className="avatar avatar-sm  me-3 " alt="" />
                                             </div>
                                             <div className="d-flex flex-column justify-content-center">
                                                 <h6 className="text-sm font-weight-normal mb-1">
@@ -65,7 +65,7 @@ const Navbar = (props) => {
                                     <div className="dropdown-item border-radius-md cursor-pointer ">
                                         <div className="d-flex py-1">
                                             <div className="my-auto">
-                                                <img src="./assets/img/small-logos/logo-spotify.svg" className="avatar avatar-sm bg-gradient-dark  me-3 " />
+                                                <img alt="" src="./assets/img/small-logos/logo-spotify.svg" className="avatar avatar-sm bg-gradient-dark  me-3 " />
                                             </div>
                                             <div className="d-flex flex-column justify-content-center">
                                                 <h6 className="text-sm font-weight-normal mb-1">

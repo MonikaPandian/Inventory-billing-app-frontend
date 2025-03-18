@@ -3,12 +3,18 @@ import React, { useState, useEffect } from 'react'
 
 const ProfileDetails = () => {
     const [userDetails, setUserDetails] = useState({});
-    
-    const { username, firstName, lastName, isAdmin, id } = userDetails;
+
+    const {
+        username,
+        firstName,
+        lastName,
+        // isAdmin,
+        id
+    } = userDetails;
 
     useEffect(() => {
         const userDetails = JSON.parse(localStorage.getItem('userDetails'));
-        setUserDetails(userDetails);      
+        setUserDetails(userDetails);
     }, [userDetails.id]);
 
     const [city, setCity] = useState("")
@@ -17,10 +23,10 @@ const ProfileDetails = () => {
     const [dob, setDob] = useState("")
     const [description, setDescription] = useState("")
     const [gender, setGender] = useState("")
-    const [adminDetails, setAdminDetails] = useState("")
+    const [, setAdminDetails] = useState("")
 
-    const updateAdminProfile = (id) => {      
-        const updateProfile = {           
+    const updateAdminProfile = (id) => {
+        const updateProfile = {
             city: city,
             country: country,
             gender: gender,
@@ -48,9 +54,9 @@ const ProfileDetails = () => {
                 "Content-Type": "application/json",
             }
         })
-        .then((data) => data.json())
-        .then((res) => {setAdminDetails(res);setCity(res.city);setCountry(res.country);setDob(res.dob);setDescription(res.description);setGender(res.gender);setPincode(res.pincode)})
-        .catch((e) => console.log(e));
+            .then((data) => data.json())
+            .then((res) => { setAdminDetails(res); setCity(res.city); setCountry(res.country); setDob(res.dob); setDescription(res.description); setGender(res.gender); setPincode(res.pincode) })
+            .catch((e) => console.log(e));
     }
 
     useEffect(() => getAdminDetails(), []);
@@ -80,34 +86,34 @@ const ProfileDetails = () => {
                     <div className="row">
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                            <input type="email" value={username}  className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" readOnly />
+                            <input type="email" value={username} className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" readOnly />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">City</label>
-                            <input type="text" value={city} onChange={(e)=>{setCity(e.target.value)}} className="form-control" id="exampleFormControlInput1" placeholder="Enter city name" />
+                            <input type="text" value={city} onChange={(e) => { setCity(e.target.value) }} className="form-control" id="exampleFormControlInput1" placeholder="Enter city name" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Country</label>
-                            <input type="text" value={country} onChange={(e)=>{setCountry(e.target.value)}} className="form-control" id="exampleFormControlInput1" placeholder="Enter country name" />
+                            <input type="text" value={country} onChange={(e) => { setCountry(e.target.value) }} className="form-control" id="exampleFormControlInput1" placeholder="Enter country name" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Date of Birth</label>
-                            <input type="text" value={dob} onChange={(e)=>{setDob(e.target.value)}} className="form-control" id="exampleFormControlInput1" placeholder="Enter your date of birth" />
+                            <input type="text" value={dob} onChange={(e) => { setDob(e.target.value) }} className="form-control" id="exampleFormControlInput1" placeholder="Enter your date of birth" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Pincode</label>
-                            <input type="text" value={pincode} onChange={(e)=>{setPincode(e.target.value)}} className="form-control" id="exampleFormControlInput1" placeholder="Enter pincode" />
+                            <input type="text" value={pincode} onChange={(e) => { setPincode(e.target.value) }} className="form-control" id="exampleFormControlInput1" placeholder="Enter pincode" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label">Gender</label>
-                            <input type="text" value={gender} onChange={(e)=>{setGender(e.target.value)}} className="form-control" id="exampleFormControlInput1" placeholder="Enter your gender" />
+                            <input type="text" value={gender} onChange={(e) => { setGender(e.target.value) }} className="form-control" id="exampleFormControlInput1" placeholder="Enter your gender" />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
-                            <textarea className="form-control" value={description} onChange={(e)=>{setDescription(e.target.value)}} id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea className="form-control" value={description} onChange={(e) => { setDescription(e.target.value) }} id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <button onClick={()=>updateAdminProfile(id)} className="btn bg-gradient-primary text-white text-capitalize w-25 opacity-8">
+                            <button onClick={() => updateAdminProfile(id)} className="btn bg-gradient-primary text-white text-capitalize w-25 opacity-8">
                                 Update profile
                             </button>
                         </div>

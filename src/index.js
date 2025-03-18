@@ -4,7 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
-import { Provider } from "react-redux";
+import { initGA } from './analytics';
+// import { Provider } from "react-redux";
+initGA();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
